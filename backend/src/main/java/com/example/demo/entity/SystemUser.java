@@ -8,6 +8,8 @@ import jakarta.persistence.Id;
 public class SystemUser {
     @Id
     private Long id;
-    @Column(unique = )
+    @Column(unique = true)
     private String username;
+    @Column(unique = true)
+    private String email;
 }
