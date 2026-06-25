@@ -17,5 +17,6 @@ public class SystemUser {
         LEARNER,LINGUIST,ADMIN
     }
     private UserRole role;
-    
+    private String nativeLanguage;
+    private 
 }
