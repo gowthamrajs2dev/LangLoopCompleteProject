@@ -12,5 +12,9 @@ public class SystemUser {
     private String username;
     @Column(unique = true)
     private String email;
-    
+    private String password;
+    public enum UserRole{
+        LEARNER,LINGUIST,ADMIN
+    }
+    private UserRole role;
 }
