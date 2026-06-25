@@ -12,4 +12,5 @@ public class SystemUser {
     private String username;
     @Column(unique = true)
     private String email;
+    
 }
