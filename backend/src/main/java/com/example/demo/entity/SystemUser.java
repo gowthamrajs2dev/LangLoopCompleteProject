@@ -17,4 +17,5 @@ public class SystemUser {
         LEARNER,LINGUIST,ADMIN
     }
     private UserRole role;
+    
 }
