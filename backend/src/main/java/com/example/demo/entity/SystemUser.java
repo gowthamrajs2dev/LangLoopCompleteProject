@@ -18,5 +18,6 @@ public class SystemUser {
     }
     private UserRole role;
     private String nativeLanguage;
-    private 
+    private String preferredLanguage;
+
 }
