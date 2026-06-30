@@ -1,6 +1,8 @@
 package com.example.demo.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import lombok.Data;
 
@@ -11,5 +13,7 @@ public class StudyDeck {
     private long id;
     private String title;
     private String description;
+    @Enumerated(EnumType.STRING)
     private DeskVisibility visibility;
+    
 }
