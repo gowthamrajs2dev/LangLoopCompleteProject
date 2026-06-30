@@ -16,5 +16,6 @@ public class RetentionMetric {
     private double easeFactor;
     private int repetitionCount;
     private int intervalDays;
-    private LocalDateTime
+    private LocalDateTime nextReviewDate;
+    private LocalDateTime lastReviewedAt;
 }
