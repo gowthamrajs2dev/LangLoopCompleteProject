@@ -9,5 +9,7 @@ public class LanguageTrack {
     private long id;
     private String name;
     private String isoCode;
-    private 
+    private DifficultyLevel difficultyLevel;
+    private String description;
+    private LocalDate
 }
