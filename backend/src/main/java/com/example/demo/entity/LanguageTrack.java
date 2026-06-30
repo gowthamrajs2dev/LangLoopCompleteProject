@@ -4,5 +4,7 @@ import jakarta.persistence.Entity;
 
 @Entity
 public class LanguageTrack {
-    private
+    private long id;
+    private String name;
+    private String isoCode;
 }
