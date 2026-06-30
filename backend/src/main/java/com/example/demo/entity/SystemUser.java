@@ -14,6 +14,7 @@ public class SystemUser {
     @Column(unique=true)
     @Email
     private String email;
-    private String 
+    private String password;
 
+    
 }
