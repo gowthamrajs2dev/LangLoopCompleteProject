@@ -23,5 +23,6 @@ public class SystemUser {
     private UserRole role;
     private String nativeLanguage;
     private String learningLanguage;
-    private LocalDateTime creatri
+    private LocalDateTime creationDateTime;
+    private LocalDateTime 
 }
