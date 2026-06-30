@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.entity.StudySession;
 
-public interface StudySessionRepository extends JpaRepository<Long,StudySession> {
+public interface StudySessionRepository extends JpaRepository<StudySession,Long> {
     
 }
