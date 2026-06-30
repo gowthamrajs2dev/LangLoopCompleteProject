@@ -1,7 +1,10 @@
 package com.example.demo.entity;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
@@ -13,6 +16,8 @@ public class Flashcard {
     private String backText;
     private String pronunciationGuide;
     private String exampleSentence;
-    @
+    @Size(min=1,max=5)
     private int difficultyRating;
+    private int reviewCount;
+    private LocalDateTime creatiol
 }
