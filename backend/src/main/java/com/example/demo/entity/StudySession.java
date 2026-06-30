@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Data;
@@ -9,5 +11,9 @@ import lombok.Data;
 public class StudySession {
     @Id
     private long id;
-    private 
+    // private SystemUser
+    // private studyDeck
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
+    private int reviewCount;
 }
