@@ -12,5 +12,7 @@ public class Flashcard {
     private String frontText;
     private String backText;
     private String pronunciationGuide;
-    
+    private String exampleSentence;
+    @
+    private int difficultyRating;
 }
