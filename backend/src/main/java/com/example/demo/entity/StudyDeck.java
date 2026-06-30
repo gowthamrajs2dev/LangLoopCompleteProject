@@ -1,10 +1,14 @@
 package com.example.demo.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.Data;
 
 @Data
 @Entity
 public class StudyDeck {
-    private 
+    @Id
+    private long id;
+    private String title;
+    
 }
