@@ -1,8 +1,12 @@
 package com.example.demo.entity;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import lombok.Data;
 
+@Data
 @Entity
 public class LanguageTrack {
     @Id
@@ -11,5 +15,6 @@ public class LanguageTrack {
     private String isoCode;
     private DifficultyLevel difficultyLevel;
     private String description;
-    private LocalDate
+    private LocalDateTime creationTime;
+
 }
