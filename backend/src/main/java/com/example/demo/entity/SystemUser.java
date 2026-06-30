@@ -8,7 +8,9 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
+import lombok.Data;
 
+@Data
 @Entity
 public class SystemUser {
     @Id
