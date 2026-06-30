@@ -18,6 +18,6 @@ public class LanguageTrack {
     @Enumerated(EnumType.STRING)
     private DifficultyLevel difficultyLevel;
     private String description;
-    private LocalDateTime creationTime;
+    private LocalDateTime modifiedTime;
 
 }

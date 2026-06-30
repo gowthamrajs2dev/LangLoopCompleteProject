@@ -26,6 +26,6 @@ public class SystemUser {
     private String nativeLanguage;
     private String learningLanguage;
     private LocalDateTime creationTime;
-    private LocalDateTime updationTime;
+    private LocalDateTime modifiedTime;
 
 }

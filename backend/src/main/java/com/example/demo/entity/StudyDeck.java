@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -16,4 +18,7 @@ public class StudyDeck {
     @Enumerated(EnumType.STRING)
     private DeskVisibility visibility;
     private int flashcardCount;
+    private LocalDateTime creationTime;
+    private LocalDateTime modifiedTime;
+
 }
