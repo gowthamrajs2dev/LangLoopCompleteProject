@@ -19,5 +19,5 @@ public class Flashcard {
     @Size(min=1,max=5)
     private int difficultyRating;
     private int reviewCount;
-    private LocalDateTime creatiol
+    private LocalDateTime creationTime;
 }
