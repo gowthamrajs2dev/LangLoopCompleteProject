@@ -15,5 +15,9 @@ public class StudySession {
     // private studyDeck
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    private int reviewCount;
+    private int totalCardsReviewed;
+    private int correctAnswers;
+    private int incorrectAnswers;
+    private double accuracyRate;
+    private SessionStatus;
 }
