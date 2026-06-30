@@ -15,5 +15,5 @@ public class StudyDeck {
     private String description;
     @Enumerated(EnumType.STRING)
     private DeskVisibility visibility;
-    
+    private int flashcardCount;
 }
