@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Data;
@@ -12,5 +14,7 @@ public class RetentionMetric {
     // private SystemUser user;
     // private Flashcard flashcard;
     private double easeFactor;
-    
+    private int repetitionCount;
+    private int intervalDays;
+    private LocalDateTime
 }
