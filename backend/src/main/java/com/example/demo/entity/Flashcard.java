@@ -9,6 +9,8 @@ import lombok.Data;
 public class Flashcard {
     @Id
     private long id;
-    private String frontSideContent;
-    private String ;
+    private String frontText;
+    private String backText;
+    private String pronunciationGuide;
+    
 }
