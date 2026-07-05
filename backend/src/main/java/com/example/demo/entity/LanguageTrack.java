@@ -21,6 +21,6 @@ public class LanguageTrack {
     private DifficultyLevel difficultyLevel;
     private String description;
     private LocalDateTime modifiedTime;
-    @OneToMany(mappedBy = "")
+    @OneToMany(mappedBy = "languageTrack")
     private List<StudyDeck> decks;
 }
