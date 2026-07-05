@@ -31,7 +31,7 @@ public class SystemUser {
     private String learningLanguage;
     private LocalDateTime creationTime;
     private LocalDateTime modifiedTime;
-    @OneToMany(mappedBy = "")
+    @OneToMany(mappedBy = "systemUser")
     private List<StudyDeck> decks;
 
 }
