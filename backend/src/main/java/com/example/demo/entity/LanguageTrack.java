@@ -1,11 +1,13 @@
 package com.example.demo.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.Data;
 
 @Data
@@ -19,5 +21,6 @@ public class LanguageTrack {
     private DifficultyLevel difficultyLevel;
     private String description;
     private LocalDateTime modifiedTime;
-
+    @OneToMany(mappedBy = "")
+    private List<StudyDeck> decks;
 }
