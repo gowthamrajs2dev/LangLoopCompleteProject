@@ -1,12 +1,14 @@
 package com.example.demo.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import lombok.Data;
@@ -29,5 +31,7 @@ public class SystemUser {
     private String learningLanguage;
     private LocalDateTime creationTime;
     private LocalDateTime modifiedTime;
-    private StudyDeck decks;
+    @OneToMany(mappedBy = "")
+    private List<StudyDeck> decks;
+
 }
