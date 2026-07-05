@@ -13,8 +13,8 @@ import lombok.Data;
 public class StudySession {
     @Id
     private long id;
-    // private SystemUser
-    // private studyDeck
+    // private SystemUser;
+    // private studyDeck;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private int totalCardsReviewed;
