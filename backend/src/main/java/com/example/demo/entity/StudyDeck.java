@@ -3,6 +3,7 @@ package com.example.demo.entity;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -27,6 +28,6 @@ public class StudyDeck {
     @ManyToOne
     @JoinColumn(name = "system_user")
     private SystemUser systemUser;
-    @OneToMany(mappedBy = "",cascade = )
+    @OneToMany(mappedBy = "",cascade = CascadeType.ALL)
     private List<Flashcard> flashcards;
 }

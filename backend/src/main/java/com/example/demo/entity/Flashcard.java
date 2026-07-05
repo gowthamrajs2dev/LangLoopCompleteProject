@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
@@ -20,4 +22,7 @@ public class Flashcard {
     private int difficultyRating;
     private int reviewCount;
     private LocalDateTime creationTime;
+    @ManyToOne
+    @JoinColumn()
+    private StudyDeck deck;
 }
