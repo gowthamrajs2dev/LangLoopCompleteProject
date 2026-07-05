@@ -28,6 +28,6 @@ public class StudyDeck {
     @ManyToOne
     @JoinColumn(name = "system_user")
     private SystemUser systemUser;
-    @OneToMany(mappedBy = "",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "deck",cascade = CascadeType.ALL)
     private List<Flashcard> flashcards;
 }

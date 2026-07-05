@@ -23,6 +23,6 @@ public class Flashcard {
     private int reviewCount;
     private LocalDateTime creationTime;
     @ManyToOne
-    @JoinColumn()
+    @JoinColumn(name = "deck")
     private StudyDeck deck;
 }
