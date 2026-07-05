@@ -7,11 +7,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import lombok.Data;
 
 @Data
 @Entity
+@Table(name = "system_user")
 public class SystemUser {
     @Id
     private long id;
