@@ -11,8 +11,8 @@ import lombok.Data;
 public class RetentionMetric {
     @Id
     private long id;
-    // private SystemUser user;
-    // private Flashcard flashcard;
+    private SystemUser user;
+    private Flashcard flashcard;
     private double easeFactor;
     private int repetitionCount;
     private int intervalDays;
