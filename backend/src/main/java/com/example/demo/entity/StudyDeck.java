@@ -20,5 +20,5 @@ public class StudyDeck {
     private int flashcardCount;
     private LocalDateTime creationTime;
     private LocalDateTime modifiedTime;
-
+    private SystemUser
 }
