@@ -30,4 +30,7 @@ public class StudyDeck {
     private SystemUser systemUser;
     @OneToMany(mappedBy = "deck",cascade = CascadeType.ALL)
     private List<Flashcard> flashcards;
+    @ManyToOne
+    @JoinColumn(name = "language_track")
+    private LanguageTrack languageTrack;
 }
