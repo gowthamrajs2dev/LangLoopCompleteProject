@@ -29,5 +29,5 @@ public class SystemUser {
     private String learningLanguage;
     private LocalDateTime creationTime;
     private LocalDateTime modifiedTime;
-    private StudyDeck 
+    private StudyDeck decks;
 }
