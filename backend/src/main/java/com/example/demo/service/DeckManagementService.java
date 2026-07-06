@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,5 +12,7 @@ import com.example.demo.repository.StudyDeckRepository;
 public class DeckManagementService {
     @Autowired
     private StudyDeckRepository studyDeckRepository;
-    public List<StudyDeck>
+    public List<StudyDeck> getAllStudyDecks(){
+        return studyDeckRepository.findAll();
+    }
 }
