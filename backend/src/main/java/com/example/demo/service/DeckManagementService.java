@@ -15,4 +15,7 @@ public class DeckManagementService {
     public List<StudyDeck> getAllStudyDecks(){
         return studyDeckRepository.findAll();
     }
+    public StudyDeck getStudyDeckById(long id){
+        return studyDeckRepository.findById(id);
+    }
 }
