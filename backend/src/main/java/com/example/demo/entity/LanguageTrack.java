@@ -17,10 +17,10 @@ public class LanguageTrack {
     private long id;
     private String name;
     private String isoCode;
-    @Enumerated(EnumType.STRING)
-    private DifficultyLevel difficultyLevel;
-    private String description;
-    private LocalDateTime modifiedTime;
-    @OneToMany(mappedBy = "languageTrack")
-    private List<StudyDeck> decks;
+    // @Enumerated(EnumType.STRING)
+    // private DifficultyLevel difficultyLevel;
+    // private String description;
+    // private LocalDateTime modifiedTime;
+    // @OneToMany(mappedBy = "languageTrack")
+    // private List<StudyDeck> decks;
 }
