@@ -14,7 +14,7 @@ import com.example.demo.entity.LanguageTrack;
 public class LanguageController {
     @Autowired
     private Service ser;
-    public List<LanguageTrack> getLanguageTracks(){
-        return ser.getLanguageTracks();
+    public List<LanguageTrack> getAllLanguageTracks(){
+        return ser.getAllLanguageTracks();
     }
 }
