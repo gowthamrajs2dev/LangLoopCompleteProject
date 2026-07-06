@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
@@ -25,4 +26,7 @@ public class Flashcard {
     @ManyToOne
     @JoinColumn(name = "deck")
     private StudyDeck deck;
+
+    @OneToOne(mappedBy = "flashcard")
+    private RetentionMetric retentionMetric;
 }
