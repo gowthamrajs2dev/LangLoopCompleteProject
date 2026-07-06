@@ -11,7 +11,7 @@ import com.example.demo.repository.LanguageTrackRepository;
 @Service
 public class LanguageService {
     @Autowired
-    LanguageTrackRepository repository;
+    LanguageTrackRepository languageTrackRepository;
 
     public List<LanguageTrack> getAlLanguageTracks(){
 
