@@ -19,7 +19,7 @@ public class StudySession {
     @JoinColumn(name = "user_id")
     private SystemUser user;
     @OneToOne
-    @JoinColumn
+    @JoinColumn(name = "deck_id")
     private StudyDeck deck;
 
     private LocalDateTime startTime;
