@@ -14,7 +14,7 @@ import com.example.demo.service.LanguageService;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 @RestController
-@RequestMapping("/api/languages")
+@RequestMapping("/api")
 public class LanguageController {
     @Autowired
     private LanguageService languageService;
@@ -22,7 +22,7 @@ public class LanguageController {
     public List<LanguageTrack> getAllLanguageTracks(){
         return languageService.getAllLanguageTracks();
     }
-    @PostMapping
+    @PostMapping("/languages")
     public void addLanguageTrack(@RequestBody LanguageTrack languageTrack){
         languageService.addLanguageTrack(languageTrack);
     }
