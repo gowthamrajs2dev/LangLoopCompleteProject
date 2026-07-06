@@ -34,4 +34,6 @@ public class SystemUser {
     @OneToMany(mappedBy = "systemUser")
     private List<StudyDeck> decks;
 
+    private StudySession studySession;
+
 }
