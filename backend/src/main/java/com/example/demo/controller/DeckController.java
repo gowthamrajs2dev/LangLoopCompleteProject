@@ -17,7 +17,7 @@ public class DeckController {
     public List<StudyDeck> getAllStudyDecks(){
         return deckManagementService.getAllStudyDecks();
     }
-    
+    @GetMapping("")
     public StudyDeck getStudyDeck(){
 
     }
