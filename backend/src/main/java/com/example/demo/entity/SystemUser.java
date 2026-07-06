@@ -38,4 +38,6 @@ public class SystemUser {
     @OneToOne(mappedBy = "user")
     private StudySession studySession;
 
+    @OneToOne(mappedBy = "")
+    private RetentionMetric retentionMetric;
 }
