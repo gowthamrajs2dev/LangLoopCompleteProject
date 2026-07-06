@@ -19,7 +19,9 @@ public class StudySession {
     @JoinColumn(name = "user_id")
     private SystemUser user;
     @OneToOne
+    @JoinColumn
     private StudyDeck deck;
+
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private int totalCardsReviewed;

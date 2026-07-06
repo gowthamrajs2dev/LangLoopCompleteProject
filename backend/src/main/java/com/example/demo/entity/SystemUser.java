@@ -9,6 +9,7 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import lombok.Data;
@@ -34,6 +35,7 @@ public class SystemUser {
     @OneToMany(mappedBy = "systemUser")
     private List<StudyDeck> decks;
 
+    @OneToOne(mappedBy = "user")
     private StudySession studySession;
 
 }
