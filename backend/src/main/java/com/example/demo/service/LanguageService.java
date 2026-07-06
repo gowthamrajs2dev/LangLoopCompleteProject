@@ -1,5 +1,10 @@
 package com.example.demo.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.demo.repository.LanguageTrackRepository;
+
 public class LanguageService {
-    void List<> getAllLanguageTracks()
+    @Autowired
+    LanguageTrackRepository repository;
 }
