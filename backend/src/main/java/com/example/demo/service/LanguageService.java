@@ -16,4 +16,8 @@ public class LanguageService {
     public List<LanguageTrack> getAllLanguageTracks(){
         return languageTrackRepository.findAll();
     }
+
+    public void addLanguageTrack(LanguageTrack languageTrack){
+        languageTrackRepository.save(languageTrack);
+    }
 }
