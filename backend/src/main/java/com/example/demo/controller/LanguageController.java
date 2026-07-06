@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.entity.LanguageTrack;
 import com.example.demo.service.LanguageService;
 
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
 @RestController
 @RequestMapping("/api/languages")
 public class LanguageController {
@@ -21,7 +23,7 @@ public class LanguageController {
         return languageService.getAllLanguageTracks();
     }
     @PostMapping
-    public void addLanguageTrack(){
-        
+    public void addLanguageTrack(@RequestBody LanguageTrack languageTrack){
+        languageService.addLanguageTrack(languageTrack);
     }
 }
