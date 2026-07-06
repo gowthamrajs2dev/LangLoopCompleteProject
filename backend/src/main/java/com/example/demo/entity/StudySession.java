@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 @Data
@@ -13,7 +15,10 @@ import lombok.Data;
 public class StudySession {
     @Id
     private long id;
+    @OneToOne
+    @JoinColumn(name = "user_id")
     private SystemUser user;
+    @OneToOne
     private StudyDeck deck;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
