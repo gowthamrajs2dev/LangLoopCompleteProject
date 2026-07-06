@@ -13,7 +13,7 @@ public class LanguageService {
     @Autowired
     LanguageTrackRepository languageTrackRepository;
 
-    public List<LanguageTrack> getAlLanguageTracks(){
-
+    public List<LanguageTrack> getAllLanguageTracks(){
+        return languageTrackRepository.findAll();
     }
 }
