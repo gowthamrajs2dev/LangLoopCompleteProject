@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ public class DeckManagementService {
     public List<StudyDeck> getAllStudyDecks(){
         return studyDeckRepository.findAll();
     }
-    public StudyDeck getStudyDeckById(long id){
+    public Optional<StudyDeck> getStudyDeckById(long id){
         return studyDeckRepository.findById(id);
     }
 }
