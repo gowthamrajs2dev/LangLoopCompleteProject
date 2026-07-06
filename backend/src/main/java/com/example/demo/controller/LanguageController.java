@@ -5,16 +5,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.LanguageTrack;
 import com.example.demo.service.LanguageService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
-
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/languages")
 public class LanguageController {
     @Autowired
     private LanguageService languageService;
@@ -22,7 +21,7 @@ public class LanguageController {
     public List<LanguageTrack> getAllLanguageTracks(){
         return languageService.getAllLanguageTracks();
     }
-    @PostMapping("/languages")
+    @PostMapping
     public void addLanguageTrack(@RequestBody LanguageTrack languageTrack){
         languageService.addLanguageTrack(languageTrack);
     }
