@@ -19,7 +19,7 @@ public class DeckController {
         return deckManagementService.getAllStudyDecks();
     }
     @GetMapping("/{id}")
-    public StudyDeck getStudyDeck(@PathVariable ){
-
+    public StudyDeck getStudyDeck(@PathVariable long id){
+        return deckManagementService.getStudyDeck(id);
     }
 }
