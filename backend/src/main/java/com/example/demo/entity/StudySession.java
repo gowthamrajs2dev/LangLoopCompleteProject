@@ -29,9 +29,9 @@ public class StudySession {
     private int incorrectAnswers;
     private double accuracyRate;
     public enum SessionStatus {
-    ACTIVE,
-    COMPLETED
-}
+        ACTIVE,
+        COMPLETED
+    }
     @Enumerated(EnumType.STRING)
     private SessionStatus sessionStatus;
     

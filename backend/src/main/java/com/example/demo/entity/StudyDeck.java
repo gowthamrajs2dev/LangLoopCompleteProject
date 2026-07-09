@@ -21,6 +21,10 @@ public class StudyDeck {
     private long id;
     private String title;
     private String description;
+    public enum DeskVisibility {
+        PUBLIC,
+        PRIVATE
+    }
     @Enumerated(EnumType.STRING)
     private DeskVisibility visibility;
     private int flashcardCount;
