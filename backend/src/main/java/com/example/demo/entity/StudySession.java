@@ -28,6 +28,10 @@ public class StudySession {
     private int correctAnswers;
     private int incorrectAnswers;
     private double accuracyRate;
+    public enum SessionStatus {
+    ACTIVE,
+    COMPLETED
+}
     @Enumerated(EnumType.STRING)
     private SessionStatus sessionStatus;
     

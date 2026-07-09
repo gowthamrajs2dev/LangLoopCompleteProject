@@ -26,6 +26,11 @@ public class SystemUser {
     @Email
     private String email;
     private String password;
+    public enum UserRole {
+        LEARNER,
+        LINGUIST,
+        ADMIN
+    }
     @Enumerated(EnumType.STRING)
     private UserRole role;
     private String nativeLanguage;
