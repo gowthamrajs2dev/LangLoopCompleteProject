@@ -19,8 +19,8 @@ public class DeckController {
     public List<StudyDeck> getAllStudyDecks(){
         return deckManagementService.getAllStudyDecks();
     }
-    @GetMapping("/{id}")
-    public ResponseEntity<?> getStudyDeck(@PathVariable long id){
-        deckManagementService.getStudyDeck(id);
-    }
+    // @GetMapping("/{id}")
+    // public ResponseEntity<?> getStudyDeck(@PathVariable long id){
+    //     deckManagementService.getStudyDeck(id);
+    // }
 }
