@@ -17,6 +17,11 @@ public class LanguageTrack {
     private long id;
     private String name;
     private String isoCode;
+    public enum DifficultyLevel {
+        Beginner,
+        Intermediate,
+        Advanced
+    }
     @Enumerated(EnumType.STRING)
     private DifficultyLevel difficultyLevel;
     private String description;
