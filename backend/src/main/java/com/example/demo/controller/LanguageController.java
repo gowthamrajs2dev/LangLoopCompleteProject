@@ -28,7 +28,7 @@ public class LanguageController {
     }
 
     @PostMapping("/{trackId}/assign/{linguistId")
-    public void assignLinguist(@PathVariable long trackId,@PathVariable ){
+    public void assignLinguist(@PathVariable long trackId,@PathVariable long linguistId){
 
     }
 }
