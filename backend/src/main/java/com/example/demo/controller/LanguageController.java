@@ -26,6 +26,6 @@ public class LanguageController {
         languageService.addLanguageTrack(languageTrack);
     }
 
-    @
+    @PostMapping("/{trackId}/assign/{linguistId")
     public void assignLinguist()
 }
