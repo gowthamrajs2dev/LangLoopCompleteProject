@@ -14,6 +14,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
@@ -22,11 +23,11 @@ import lombok.Data;
 public class StudyDeck {
     @Id
     private long id;
-    @Column(nullable = false)
+    @NotBlank //" "
     private String title;
     private String description;
     private int capacity;
-    @Column(nullable = false)
+    @NotBlank
     private String mentorName;
     private long ownerId;
     public enum DeskVisibility {
