@@ -26,5 +26,6 @@ public class LanguageController {
         languageService.addLanguageTrack(languageTrack);
     }
 
-    // public void assignLinguist
+    @
+    public void assignLinguist()
 }
