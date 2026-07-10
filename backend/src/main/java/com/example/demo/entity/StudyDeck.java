@@ -23,7 +23,7 @@ import lombok.Data;
 public class StudyDeck {
     @Id
     private long id;
-    @NotBlank //" "
+    @NotBlank //" " empty space is not allowed
     private String title;
     private String description;
     private int capacity;
