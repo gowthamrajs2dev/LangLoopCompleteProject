@@ -21,6 +21,9 @@ public class StudyDeck {
     private long id;
     private String title;
     private String description;
+    private int capacity;
+    private String mentorName;
+    private long ownerId;
     public enum DeskVisibility {
         PUBLIC,
         PRIVATE
