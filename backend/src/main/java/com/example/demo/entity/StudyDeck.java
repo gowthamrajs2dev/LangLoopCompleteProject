@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -21,9 +22,11 @@ import lombok.Data;
 public class StudyDeck {
     @Id
     private long id;
+    @Column(nullable = false)
     private String title;
     private String description;
     private int capacity;
+    @Column(nullable = false)
     private String mentorName;
     private long ownerId;
     public enum DeskVisibility {
