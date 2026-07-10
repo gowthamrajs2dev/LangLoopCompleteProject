@@ -26,7 +26,8 @@ public class StudyDeck {
     @NotBlank //" " empty space is not allowed
     private String title;
     private String description;
-    private int capacity;
+
+    private int capacity; //exception handling for -ve values
     @NotBlank
     private String mentorName;
     private long ownerId;
