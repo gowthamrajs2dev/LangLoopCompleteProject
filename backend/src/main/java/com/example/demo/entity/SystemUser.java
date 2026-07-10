@@ -23,8 +23,8 @@ public class SystemUser {
     @Column(unique = true)
     private String username;
     @Column(unique=true)
-    @Email
-    private String email;
+    // @Email
+    // private String email;
     private String password;
     public enum UserRole {
         LEARNER,
