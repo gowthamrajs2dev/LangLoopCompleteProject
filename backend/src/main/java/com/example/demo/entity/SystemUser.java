@@ -33,16 +33,16 @@ public class SystemUser {
     }
     @Enumerated(EnumType.STRING)
     private UserRole role;
-    private String nativeLanguage;
-    private String learningLanguage;
-    private LocalDateTime creationTime;
-    private LocalDateTime modifiedTime;
-    @OneToMany(mappedBy = "systemUser")
-    private List<StudyDeck> decks;
+    // private String nativeLanguage;
+    // private String learningLanguage;
+    // private LocalDateTime creationTime;
+    // private LocalDateTime modifiedTime;
+    // @OneToMany(mappedBy = "systemUser")
+    // private List<StudyDeck> decks;
 
-    @OneToOne(mappedBy = "user")
-    private StudySession studySession;
+    // @OneToOne(mappedBy = "user")
+    // private StudySession studySession;
 
-    @OneToOne(mappedBy = "user")
-    private RetentionMetric retentionMetric;
+    // @OneToOne(mappedBy = "user")
+    // private RetentionMetric retentionMetric;
 }
