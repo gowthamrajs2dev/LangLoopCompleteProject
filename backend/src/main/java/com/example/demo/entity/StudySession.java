@@ -15,6 +15,7 @@ import lombok.Data;
 public class StudySession {
     @Id
     private long id;
+    private Long userId;
     @OneToOne
     @JoinColumn(name = "user_id")
     private SystemUser user;
@@ -22,17 +23,18 @@ public class StudySession {
     @JoinColumn(name = "deck_id")
     private StudyDeck deck;
 
+    private int score;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    private int totalCardsReviewed;
-    private int correctAnswers;
-    private int incorrectAnswers;
-    private double accuracyRate;
-    public enum SessionStatus {
-        ACTIVE,
-        COMPLETED
-    }
-    @Enumerated(EnumType.STRING)
-    private SessionStatus sessionStatus;
+    // private int totalCardsReviewed;
+    // private int correctAnswers;
+    // private int incorrectAnswers;
+    // private double accuracyRate;
+    // public enum SessionStatus {
+    //     ACTIVE,
+    //     COMPLETED
+    // }
+    // @Enumerated(EnumType.STRING)
+    // private SessionStatus sessionStatus;
     
 }
