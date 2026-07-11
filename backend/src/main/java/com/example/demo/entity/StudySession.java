@@ -19,6 +19,7 @@ public class StudySession {
     @OneToOne
     @JoinColumn(name = "user_id")
     private SystemUser user;
+    private Long deckId;
     @OneToOne
     @JoinColumn(name = "deck_id")
     private StudyDeck deck;
