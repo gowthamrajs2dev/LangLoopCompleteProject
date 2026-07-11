@@ -31,6 +31,6 @@ public class RetentionMetric {
         LEARNING,
         MASTERED
     }
-    @Enumerated 
+    @Enumerated
     private MasteryLevel masteryLevel;
 }
