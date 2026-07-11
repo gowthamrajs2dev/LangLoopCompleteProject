@@ -14,6 +14,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
@@ -26,8 +27,8 @@ public class StudyDeck {
     @NotBlank //" " empty space is not allowed
     private String title;
     private String description;
-
-    private int capacity; //exception handling for -ve values
+    @Min(0)
+    private int capacity; 
     @NotBlank
     private String mentorName;
     private long ownerId;
