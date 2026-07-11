@@ -31,25 +31,25 @@ public class StudyDeck {
     private int capacity; 
     @NotBlank
     private String mentorName;
-    @ManyToOne
-    @JoinColumn(name = "owner")
     private long ownerId;
-    public enum DeskVisibility {
-        PUBLIC,
-        PRIVATE
-    }
-    @Enumerated(EnumType.STRING)
-    private DeskVisibility visibility;
-    private int flashcardCount;
-    private LocalDateTime creationTime;
-    private LocalDateTime modifiedTime;
-    private SystemUser systemUser;
-    @OneToMany(mappedBy = "deck",cascade = CascadeType.ALL)
-    private List<Flashcard> flashcards;
+    // public enum DeskVisibility {
+    //     PUBLIC,
+    //     PRIVATE
+    // }
+    // @Enumerated(EnumType.STRING)
+    // private DeskVisibility visibility;
+    // private int flashcardCount;
+    // private LocalDateTime creationTime;
+    // private LocalDateTime modifiedTime;
     @ManyToOne
-    @JoinColumn(name = "language_track")
-    private LanguageTrack languageTrack;
+    @JoinColumn(name = "system_user")
+    private SystemUser systemUser;
+    // @OneToMany(mappedBy = "deck",cascade = CascadeType.ALL)
+    // private List<Flashcard> flashcards;
+    // @ManyToOne
+    // @JoinColumn(name = "language_track")
+    // private LanguageTrack languageTrack;
 
-    @OneToOne(mappedBy = "deck")
-    private StudySession studySession;
+    // @OneToOne(mappedBy = "deck")
+    // private StudySession studySession;
 }
