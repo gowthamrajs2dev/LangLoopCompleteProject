@@ -13,15 +13,15 @@ import lombok.Data;
 public class RetentionMetric {
     @Id
     private long id;
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private SystemUser user;
-    @OneToOne
-    @JoinColumn(name = "flashcard_id")
-    private Flashcard flashcard;
+    // @OneToOne
+    // @JoinColumn(name = "user_id")
+    // private SystemUser user;
+    // @OneToOne
+    // @JoinColumn(name = "flashcard_id")
+    // private Flashcard flashcard;
     private double easeFactor;
-    private int repetitionCount;
+    // private int repetitionCount;
     private int intervalDays;
     private LocalDateTime nextReviewDate;
-    private LocalDateTime lastReviewedAt;
+    // private LocalDateTime lastReviewedAt;
 }
