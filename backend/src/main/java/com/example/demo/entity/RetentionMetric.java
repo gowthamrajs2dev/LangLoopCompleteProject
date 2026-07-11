@@ -20,7 +20,7 @@ public class RetentionMetric {
     // @OneToOne
     // @JoinColumn(name = "flashcard_id")
     // private Flashcard flashcard;
-    private double easeFactor;
+    private double easeFactor=2.5;
     // private int repetitionCount;
     private int intervalDays;
     private LocalDateTime nextReviewDate;
