@@ -25,5 +25,10 @@ public class RetentionMetric {
     private LocalDateTime nextReviewDate;
     // private LocalDateTime lastReviewedAt;
 
-    private enum 
+    public enum MasteryLevel{
+        NEW,
+        LEARNING,
+        MASTERED
+    }
+    private enum MasteryLevel masteryLevel;
 }
