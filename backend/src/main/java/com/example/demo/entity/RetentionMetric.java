@@ -24,4 +24,6 @@ public class RetentionMetric {
     private int intervalDays;
     private LocalDateTime nextReviewDate;
     // private LocalDateTime lastReviewedAt;
+
+    private enum 
 }
