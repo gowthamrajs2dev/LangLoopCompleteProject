@@ -15,8 +15,8 @@ import lombok.Data;
 public class Flashcard {
     @Id
     private long id;
-    private String frontText;
-    private String backText;
+    private String frontContent;
+    private String backContent;
     private String pronunciationGuide;
     private String exampleSentence;
     @Size(min=1,max=5)
