@@ -7,11 +7,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
 @Entity
+@Table(name="flashcard")
 public class Flashcard {
     @Id
     private long id;
@@ -24,9 +26,9 @@ public class Flashcard {
     // private int difficultyRating;
     // private int reviewCount;
     // private LocalDateTime creationTime;
-
+    private Long deckId;
     @ManyToOne
-    @JoinColumn(name = "deckId")
+    @JoinColumn(name = "deck")
     private StudyDeck deck;
 
     // @OneToOne(mappedBy = "flashcard")

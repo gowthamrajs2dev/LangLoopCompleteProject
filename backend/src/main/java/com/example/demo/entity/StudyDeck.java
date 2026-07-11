@@ -44,8 +44,8 @@ public class StudyDeck {
     @ManyToOne
     @JoinColumn(name = "system_user")
     private SystemUser systemUser;
-    // @OneToMany(mappedBy = "deck",cascade = CascadeType.ALL)
-    // private List<Flashcard> flashcards;
+    @OneToMany(mappedBy = "deck",cascade = CascadeType.ALL)
+    private List<Flashcard> flashcards;
     // @ManyToOne
     // @JoinColumn(name = "language_track")
     // private LanguageTrack languageTrack;
