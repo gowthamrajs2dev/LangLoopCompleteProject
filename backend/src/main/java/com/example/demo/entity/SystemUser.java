@@ -12,6 +12,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
@@ -21,6 +22,7 @@ public class SystemUser {
     @Id
     private long id;
     @Column(unique = true)
+    @NotNull
     private String username;
     @Column(unique=true)
     // @Email
