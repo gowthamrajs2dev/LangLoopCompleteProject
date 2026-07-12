@@ -16,6 +16,7 @@ import lombok.Data;
 @Table(name="flashcard")
 public class Flashcard {
     @Id
+    @Ge
     private long id;
     private String frontContent;
     private String backContent;
