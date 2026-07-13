@@ -38,6 +38,7 @@ public class DeckManagementService {
 
     public DeckRequestDto getDeckById(Long id){
         StudyDeck studyDeck=studyDeckRepository.findById(id).orElseThrow(()->new StudyDeckNotFoundException("id not found"));
+        return convertToDeckRequestDto(studyDeck)
     }
 
 }
