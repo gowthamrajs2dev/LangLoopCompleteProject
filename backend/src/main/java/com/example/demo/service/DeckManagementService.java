@@ -44,5 +44,7 @@ public class DeckManagementService {
     public void createDeck(DeckRequestDto dto){
         StudyDeck studyDeck=new StudyDeck();
         studyDeck.setTitle(dto.getTitle());
+        studyDeck.setDescription(dto.getDescription());
+        
     }
 }
