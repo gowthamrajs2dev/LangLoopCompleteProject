@@ -15,7 +15,15 @@ import com.example.demo.repository.StudyDeckRepository;
 public class DeckManagementService {
     @Autowired
     private StudyDeckRepository studyDeckRepository;
-    List<DeckRequestDto> getAllDecks(){
+
+    public static DeckRequestDto convertToDeckRequestDto(StudyDeck studyDeck){
+        DeckRequestDto dto=new DeckRequestDto();
+        dto.setCapacity(studyDeck.getCapacity());
+        dto.setDescription(studyDeck.getDescription());
+        dto.setTitle(studyDeck.getTitle());
+        return dto;
+    }
+    public List<DeckRequestDto> getAllDecks(){
         List<StudyDeck>li=studyDeckRepository.findAll();
         List<DeckRequestDto>result=new ArrayList<>();
         for(StudyDeck studyDeck : li){
@@ -25,11 +33,6 @@ public class DeckManagementService {
         return result;
     }
 
-    public static DeckRequestDto convertToDeckRequestDto(StudyDeck studyDeck){
-        DeckRequestDto dto=new DeckRequestDto();
-        dto.setCapacity(studyDeck.getCapacity());
-        dto.setDescription(studyDeck.getDescription());
-        dto.setTitle(studyDeck.getTitle());
-        return dto;
-    }
+    
+
 }
