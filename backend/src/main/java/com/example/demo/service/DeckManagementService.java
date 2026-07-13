@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,8 +17,10 @@ public class DeckManagementService {
     private StudyDeckRepository studyDeckRepository;
     List<DeckRequestDto> getAllDecks(){
         List<StudyDeck>li=studyDeckRepository.findAll();
+        List<DeckRequestDto>result=new ArrayList<>();
         for(StudyDeck studyDeck : li){
-            
+
         }
+        return result;
     }
 }
