@@ -26,6 +26,9 @@ public class DeckManagementService {
     }
 
     public static DeckRequestDto convertToDeckRequestDto(StudyDeck studyDeck){
-        DeckRequestDto 
+        DeckRequestDto dto=new DeckRequestDto();
+        dto.setCapacity(studyDeck.getCapacity());
+        
+        return dto;
     }
 }
