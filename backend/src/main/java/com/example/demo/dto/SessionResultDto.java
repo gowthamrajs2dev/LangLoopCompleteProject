@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 public class SessionResultDto {
     private Long userId;
     private Long deckId;
-    private int score;
+    private int score;  //include validation score should be in some range
     private int quality;
 }
