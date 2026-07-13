@@ -5,5 +5,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
-    @ExceptionHandler(StudyDeckNotFoundException )
+    @ExceptionHandler(StudyDeckNotFoundException.class)
+    public 
 }
