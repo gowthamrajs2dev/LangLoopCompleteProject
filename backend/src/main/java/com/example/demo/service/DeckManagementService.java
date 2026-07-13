@@ -15,6 +15,6 @@ public class DeckManagementService {
     @Autowired
     private StudyDeckRepository studyDeckRepository;
     List<DeckRequestDto> getAllDecks(){
-        studyDeck
+        studyDeckRepository.findAll();
     }
 }
