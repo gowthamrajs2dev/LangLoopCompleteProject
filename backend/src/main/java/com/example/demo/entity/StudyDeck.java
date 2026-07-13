@@ -8,6 +8,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -23,6 +25,7 @@ import lombok.Data;
 @Table(name="system_deck")
 public class StudyDeck {
     @Id
+    @GeneratedValue(strategy = GenerationType.)
     private Long id;
     @NotBlank //" " empty space is not allowed
     private String title;
