@@ -14,7 +14,7 @@ import lombok.Data;
 @Entity
 public class StudySession {
     @Id
-    private long id;
+    private Long id;
     private Long userId;
     @OneToOne
     @JoinColumn(name = "user_id")
