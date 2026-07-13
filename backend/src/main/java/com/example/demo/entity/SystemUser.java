@@ -7,6 +7,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
@@ -20,6 +21,7 @@ import lombok.Data;
 @Table(name = "system_user")
 public class SystemUser {
     @Id
+    @GeneratedValue(strategy = )
     private Long id;
     @Column(unique = true)
     @NotNull
