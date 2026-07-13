@@ -18,14 +18,18 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Entity
 @Table(name="system_deck")
 public class StudyDeck {
     @Id
-    @GeneratedValue(strategy = GenerationType.)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @NotBlank //" " empty space is not allowed
     private String title;
