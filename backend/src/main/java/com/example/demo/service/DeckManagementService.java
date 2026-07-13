@@ -13,10 +13,5 @@ import com.example.demo.repository.StudyDeckRepository;
 public class DeckManagementService {
     @Autowired
     private StudyDeckRepository studyDeckRepository;
-    public List<StudyDeck> getAllStudyDecks(){
-        return studyDeckRepository.findAll();
-    }
-    public Optional<StudyDeck> getStudyDeckById(long id){
-        return studyDeckRepository.findById(id);
-    }
+    List<DeckResponseDt
 }
