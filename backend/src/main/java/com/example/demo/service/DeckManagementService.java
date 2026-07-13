@@ -35,6 +35,8 @@ public class DeckManagementService {
     }
 
 
-    public DeckRequestDto 
+    public DeckRequestDto getDeckById(Long id){
+        StudyDeck studyDeck=studyDeckRepository.findById(id)
+    }
 
 }
