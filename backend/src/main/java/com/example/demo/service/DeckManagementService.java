@@ -35,6 +35,6 @@ public class DeckManagementService {
     }
 
 
-    public DeckResponseDto 
+    public DeckRequestDto 
 
 }
