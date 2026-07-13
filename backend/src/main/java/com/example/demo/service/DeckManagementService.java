@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.dto.DeckRequestDto;
 import com.example.demo.entity.StudyDeck;
 import com.example.demo.repository.StudyDeckRepository;
 
@@ -13,5 +14,7 @@ import com.example.demo.repository.StudyDeckRepository;
 public class DeckManagementService {
     @Autowired
     private StudyDeckRepository studyDeckRepository;
-    List<DeckResponseDt
+    List<DeckRequestDto> getAllDecks(){
+        studyDeck
+    }
 }
