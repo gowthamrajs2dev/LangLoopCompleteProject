@@ -41,5 +41,8 @@ public class DeckManagementService {
         return convertToDeckRequestDto(studyDeck);
     }
 
-    public void createDeck(DeckRequest)
+    public void createDeck(DeckRequestDto dto){
+        StudyDeck studyDeck=new StudyDeck();
+        studyDeck.set
+    }
 }
