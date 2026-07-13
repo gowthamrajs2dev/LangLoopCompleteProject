@@ -36,7 +36,7 @@ public class DeckManagementService {
 
 
     public DeckRequestDto getDeckById(Long id){
-        StudyDeck studyDeck=studyDeckRepository.findById(id)
+        StudyDeck studyDeck=studyDeckRepository.findById(id).orElse(()->);
     }
 
 }
