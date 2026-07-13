@@ -20,7 +20,7 @@ import lombok.Data;
 @Table(name = "system_user")
 public class SystemUser {
     @Id
-    private long id;
+    private Long id;
     @Column(unique = true)
     @NotNull
     private String username;

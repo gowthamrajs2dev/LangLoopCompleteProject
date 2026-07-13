@@ -23,7 +23,7 @@ import lombok.Data;
 @Table(name="system_deck")
 public class StudyDeck {
     @Id
-    private long id;
+    private Long id;
     @NotBlank //" " empty space is not allowed
     private String title;
     private String description;
