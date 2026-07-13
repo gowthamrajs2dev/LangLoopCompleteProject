@@ -43,6 +43,6 @@ public class DeckManagementService {
 
     public void createDeck(DeckRequestDto dto){
         StudyDeck studyDeck=new StudyDeck();
-        studyDeck.set
+        studyDeck.setTitle(dto.getTitle());
     }
 }
