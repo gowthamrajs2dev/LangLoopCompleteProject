@@ -19,7 +19,8 @@ public class DeckManagementService {
         List<StudyDeck>li=studyDeckRepository.findAll();
         List<DeckRequestDto>result=new ArrayList<>();
         for(StudyDeck studyDeck : li){
-
+            DeckRequestDto dto=
+            result.add();
         }
         return result;
     }
