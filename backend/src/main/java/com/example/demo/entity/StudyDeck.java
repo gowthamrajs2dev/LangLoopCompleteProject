@@ -33,7 +33,6 @@ public class StudyDeck {
     private int capacity; 
     @NotBlank
     private String mentorName;
-    private long ownerId;
     // public enum DeskVisibility {
     //     PUBLIC,
     //     PRIVATE
@@ -44,7 +43,7 @@ public class StudyDeck {
     // private LocalDateTime creationTime;
     // private LocalDateTime modifiedTime;
     @ManyToOne
-    @JoinColumn(name = "system_user")
+    @JoinColumn(name = "owner_id")
     private SystemUser systemUser;
     @OneToMany(mappedBy = "deck",cascade = CascadeType.ALL)
     private List<Flashcard> flashcards;
