@@ -48,6 +48,7 @@ public class DeckController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteDeck(@PathVariable Long id){
-        
+        deckMangementServiceImpl.deleteDeck(id);
+        return ResponseEntity.ok("User with id: "+id+" deleted successfully!");
     }
 }
