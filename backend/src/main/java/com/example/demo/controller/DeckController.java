@@ -34,13 +34,13 @@ public class DeckController {
     }
 
     @PostMapping
-    public ResponseEntity<String> createDeck(@RequestBody DeckRequestDto dto){
-        deckMangementServiceImpl.createDeck(dto);
-        return ResponseEntity.status(HttpStatus.CREATED).body("new study deck created successfully!");
+    public ResponseEntity<DeckRequestDto> createDeck(@RequestBody DeckRequestDto dto){
+        DeckRequestDto created=deckMangementServiceImpl.createDeck(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<DeckRequestDto> updateDeck(@PathVariable Long id,@RequestBody DeckRequestDto dto){
-        return 
+        DeckRequestDto updated=
     }
 }
