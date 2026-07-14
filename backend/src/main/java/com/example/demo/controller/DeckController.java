@@ -1,18 +1,12 @@
 package com.example.demo.controller;
 
-import java.util.List;
-
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.entity.StudyDeck;
-import com.example.demo.service.DeckManagementService;
+import com.example.demo.service.DeckMangementServiceImpl;
 
 @RestController
-@RequestMapping("/api/decks")
+@RequestMapping("/api")
 public class DeckController {
-    
+    DeckMangementServiceImpl 
 }
