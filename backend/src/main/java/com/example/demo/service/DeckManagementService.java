@@ -57,6 +57,8 @@ public class DeckManagementService {
     }
 
     public void updateDeck(Long id,DeckRequestDto dto){
-        StudyDeck studyDeck=studyDeckRepository.findById(id).orElseThrow(()->new StudyDeckNotFoundException("no id found for update"));
+        StudyDeck studyDeck=studyDeckRepository.findById(id)
+        .orElseThrow(()->new StudyDeckNotFoundException("no id found for updating study deck"));
+        studyDeck.setTitle(dto.getTitle())
     }
 }
