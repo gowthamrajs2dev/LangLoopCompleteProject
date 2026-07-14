@@ -39,5 +39,8 @@ public class DeckController {
         return ResponseEntity.status(HttpStatus.CREATED).body("new study deck created successfully!");
     }
 
-    @PutMapping("")
+    @PutMapping("/{id}")
+    public ResponseEntity<DeckRequestDto> updateDeck(@PathVariable Long id,@RequestBody DeckRequestDto dto){
+        return 
+    }
 }
