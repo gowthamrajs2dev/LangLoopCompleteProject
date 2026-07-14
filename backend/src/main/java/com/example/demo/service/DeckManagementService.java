@@ -65,6 +65,5 @@ public class DeckManagementService {
         // studyDeck.setMentorName();
         // studyDeck.setOwnerId();
         // studyDeck.setSystemUser();
-        studyDeckRepository.save(studyDeck);
     }
 }
