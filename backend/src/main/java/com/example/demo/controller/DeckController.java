@@ -47,5 +47,7 @@ public class DeckController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<DeckRequestDto> updat
+    public ResponseEntity<String> deleteDeck(@PathVariable Long id){
+        
+    }
 }
