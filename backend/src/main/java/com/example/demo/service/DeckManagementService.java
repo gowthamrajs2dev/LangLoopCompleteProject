@@ -46,6 +46,9 @@ public class DeckManagementService {
         studyDeck.setTitle(dto.getTitle());
         studyDeck.setDescription(dto.getDescription());
         studyDeck.setCapacity(dto.getCapacity());
-        studyDeck.set
+        // studyDeck.setMentorName();
+        // studyDeck.setOwnerId();
+        // studyDeck.setSystemUser();
+        studyDeckRepository.save()
     }
 }
