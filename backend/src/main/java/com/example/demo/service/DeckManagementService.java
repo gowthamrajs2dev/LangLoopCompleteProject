@@ -17,6 +17,4 @@ import com.example.demo.repository.StudyDeckRepository;
 public interface DeckManagementService {
 
     
-} DeckManagementService {
-   
-}
+} 

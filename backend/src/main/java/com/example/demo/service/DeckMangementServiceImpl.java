@@ -12,7 +12,7 @@ import com.example.demo.exception.StudyDeckNotFoundException;
 import com.example.demo.repository.StudyDeckRepository;
 
 @Service
-public class DeckMangementServiceImpl {
+public class DeckMangementServiceImpl implements DeckManagementService{
      @Autowired
     private StudyDeckRepository studyDeckRepository;
 
