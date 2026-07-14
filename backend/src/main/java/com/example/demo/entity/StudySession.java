@@ -20,11 +20,9 @@ public class StudySession {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Long userId;
     @OneToOne
     @JoinColumn(name = "user_id")
     private SystemUser user;
-    private Long deckId;
     @OneToOne
     @JoinColumn(name = "deck_id")
     private StudyDeck deck;
