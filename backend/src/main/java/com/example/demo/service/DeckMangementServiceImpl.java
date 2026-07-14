@@ -30,7 +30,7 @@ public class DeckMangementServiceImpl implements DeckManagementService{
             DeckRequestDto dto=convertToDeckRequestDto(studyDeck);
             result.add(dto);
         }
-        return result;
+        return result
     }
 
 
