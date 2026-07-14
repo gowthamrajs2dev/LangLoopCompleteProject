@@ -31,7 +31,6 @@ public class Flashcard {
     // private int difficultyRating;
     // private int reviewCount;
     // private LocalDateTime creationTime;
-    private Long deckId;
     @ManyToOne
     @JoinColumn(name = "deck_id")
     private StudyDeck deck;
