@@ -30,7 +30,7 @@ public class DeckMangementServiceImpl implements DeckManagementService{
             DeckRequestDto dto=convertToDeckRequestDto(studyDeck);
             result.add(dto);
         }
-        return result
+        return result;
     }
 
 
@@ -39,7 +39,7 @@ public class DeckMangementServiceImpl implements DeckManagementService{
         return convertToDeckRequestDto(studyDeck);
     }
 
-    public void createDeck(DeckRequestDto dto){
+    public DeckRequestDto createDeck(DeckRequestDto dto){
         StudyDeck studyDeck=new StudyDeck();
         studyDeck.setTitle(dto.getTitle());
         studyDeck.setDescription(dto.getDescription());
@@ -48,13 +48,15 @@ public class DeckMangementServiceImpl implements DeckManagementService{
         // studyDeck.setOwnerId();
         // studyDeck.setSystemUser();
         studyDeckRepository.save(studyDeck);
+
+        return dto;
     }
 
     public void deleteDeck(Long id){
         studyDeckRepository.deleteById(id);
     }
 
-    public void updateDeck(Long id,DeckRequestDto dto){
+    public DeckRequestDto updateDeck(Long id,DeckRequestDto dto){
         StudyDeck studyDeck=studyDeckRepository.findById(id)
         .orElseThrow(()->new StudyDeckNotFoundException("no id found for updating study deck"));
         studyDeck.setTitle(dto.getTitle());
@@ -63,5 +65,6 @@ public class DeckMangementServiceImpl implements DeckManagementService{
         // studyDeck.setMentorName();
         // studyDeck.setOwnerId();
         // studyDeck.setSystemUser();
+        return dto;
     }
 }
