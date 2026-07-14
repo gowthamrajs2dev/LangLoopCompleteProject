@@ -41,7 +41,7 @@ public class DeckManagementService {
         return convertToDeckRequestDto(studyDeck);
     }
 
-    public void createDeck(DeckRequestDto dto){
+    public DeckRequestDto createDeck(DeckRequestDto dto){
         StudyDeck studyDeck=new StudyDeck();
         studyDeck.setTitle(dto.getTitle());
         studyDeck.setDescription(dto.getDescription());
@@ -50,5 +50,6 @@ public class DeckManagementService {
         // studyDeck.setOwnerId();
         // studyDeck.setSystemUser();
         studyDeckRepository.save(studyDeck);
+        return 
     }
 }
