@@ -41,6 +41,7 @@ public class DeckController {
 
     @PutMapping("/{id}")
     public ResponseEntity<DeckRequestDto> updateDeck(@PathVariable Long id,@RequestBody DeckRequestDto dto){
-        DeckRequestDto updated=
+        DeckRequestDto updated=deckMangementServiceImpl.updateDeck(id, dto);
+        return ResponseEntity.status(HttpStatus)
     }
 }
