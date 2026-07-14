@@ -33,7 +33,7 @@ public class Flashcard {
     // private LocalDateTime creationTime;
     private Long deckId;
     @ManyToOne
-    @JoinColumn(name = "deck")
+    @JoinColumn(name = "deck_id")
     private StudyDeck deck;
 
     // @OneToOne(mappedBy = "flashcard")
