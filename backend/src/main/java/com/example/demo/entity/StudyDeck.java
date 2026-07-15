@@ -44,7 +44,7 @@ public class StudyDeck {
     // private LocalDateTime modifiedTime;
     @ManyToOne
     @JoinColumn(name = "owner_id")
-    private SystemUser systemUser;
+    private SystemUser ownerId;
     @OneToMany(mappedBy = "deck",cascade = CascadeType.ALL)
     private List<Flashcard> flashcards;
     // @ManyToOne
