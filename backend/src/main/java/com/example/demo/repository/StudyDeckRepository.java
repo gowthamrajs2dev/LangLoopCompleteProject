@@ -9,5 +9,5 @@ import com.example.demo.entity.StudyDeck;
 public interface StudyDeckRepository extends JpaRepository<StudyDeck,Long>{
     
     public List<StudyDeck> findByTitleContaining(String keyword);
-    public StudyDeck findByOwnerId(long ownerId);
+    public List<StudyDeck> findByOwnerId(Long ownerId);
 }
