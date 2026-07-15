@@ -40,7 +40,7 @@ public class DeckController {
 
     @PostMapping
     public ResponseEntity<DeckResponseDto> createDeck(@Valid @RequestBody DeckRequestDto dto){
-        DeckResponseDto created=deckMangementServiceImpl.createDeck(dto)
+        DeckResponseDto created=deckMangementServiceImpl.createDeck(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 
