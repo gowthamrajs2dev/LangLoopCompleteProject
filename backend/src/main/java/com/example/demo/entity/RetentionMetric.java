@@ -21,18 +21,9 @@ public class RetentionMetric {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    // @OneToOne
-    // @JoinColumn(name = "user_id")
-    // private SystemUser user;
-    // @OneToOne
-    // @JoinColumn(name = "flashcard_id")
-    // private Flashcard flashcard;
     private double easeFactor=2.5;
-    // private int repetitionCount;
     private int intervalDays;
     private LocalDateTime nextReviewDate;
-    // private LocalDateTime lastReviewedAt;
-
     public enum MasteryLevel{
         NEW,
         LEARNING,

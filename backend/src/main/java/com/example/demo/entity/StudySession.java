@@ -26,19 +26,8 @@ public class StudySession {
     @OneToOne
     @JoinColumn(name = "deck_id")
     private StudyDeck deck;
-
     private int score;  //include validation score should be in some range
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    // private int totalCardsReviewed;
-    // private int correctAnswers;
-    // private int incorrectAnswers;
-    // private double accuracyRate;
-    // public enum SessionStatus {
-    //     ACTIVE,
-    //     COMPLETED
-    // }
-    // @Enumerated(EnumType.STRING)
-    // private SessionStatus sessionStatus;
     
 }

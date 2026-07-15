@@ -30,22 +30,9 @@ public class SystemUser {
     @NotNull
     private String username;
     @Column(unique=true)
-    // @Email
-    // private String email;
     private String password;
-    
     @Enumerated(EnumType.STRING)
     private UserRole role;
-    // private String nativeLanguage;
-    // private String learningLanguage;
-    // private LocalDateTime creationTime;
-    // private LocalDateTime modifiedTime;
     @OneToMany(mappedBy = "owner")
     private List<StudyDeck> decks;
-
-    // @OneToOne(mappedBy = "user")
-    // private StudySession studySession;
-
-    // @OneToOne(mappedBy = "user")
-    // private RetentionMetric retentionMetric;
 }
