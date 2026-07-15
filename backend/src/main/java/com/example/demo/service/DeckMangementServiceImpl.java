@@ -58,7 +58,8 @@ public class DeckMangementServiceImpl implements DeckManagementService{
     }
 
     public String deleteDeck(Long id){
-        studyDeckRepository.deleteById(id);
+        StudyDeck studyDeck = studyDeckRepository.findById(id).orElseThrow()
+        // studyDeckRepository.deleteById(id);
     }
 
     public StudyDeck updateDeck(Long id,DeckRequestDto dto){
