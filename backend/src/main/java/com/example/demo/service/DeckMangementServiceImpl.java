@@ -22,7 +22,10 @@ public class DeckMangementServiceImpl implements DeckManagementService{
         dto.setCapacity(studyDeck.getCapacity());
         dto.setDescription(studyDeck.getDescription());
         dto.setTitle(studyDeck.getTitle());
-        dto.
+        dto.setId(studyDeck.getId());
+        dto.setOwner(studyDeck.getOwner());
+        dto.setMentorName(studyDeck.getMentorName());
+        dto.setFlashcards(studyDeck.getFlashcards());
         return dto;
     }
     public List<DeckResponseDto> getAllDecks(){
