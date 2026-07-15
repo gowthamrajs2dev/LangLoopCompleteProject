@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.demo.dto.DeckRequestDto;
+import com.example.demo.dto.DeckResponseDto;
 import com.example.demo.entity.StudyDeck;
 import com.example.demo.exception.StudyDeckNotFoundException;
 import com.example.demo.repository.StudyDeckRepository;
@@ -23,11 +24,11 @@ public class DeckMangementServiceImpl implements DeckManagementService{
         dto.setTitle(studyDeck.getTitle());
         return dto;
     }
-    public List<DeckRequestDto> getAllDecks(){
+    public List<DeckResponseDto> getAllDecks(){
         List<StudyDeck>li=studyDeckRepository.findAll();
         List<DeckRequestDto>result=new ArrayList<>();
         for(StudyDeck studyDeck : li){
-            DeckRequestDto dto=convertToDeckRequestDto(studyDeck);
+            DeckRequestDto dto=convertToDeckResponseDto(studyDeck);
             result.add(dto);
         }
         return result;
