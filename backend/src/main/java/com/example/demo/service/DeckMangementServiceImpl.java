@@ -39,9 +39,9 @@ public class DeckMangementServiceImpl implements DeckManagementService{
     }
 
 
-    public DeckRequestDto getDeckById(Long id){
-        StudyDeck studyDeck=studyDeckRepository.findById(id).orElseThrow(()->new StudyDeckNotFoundException("id not found"));
-        return convertToDeckRequestDto(studyDeck);
+    public DeckResponseDto getDeckById(Long id){
+        StudyDeck studyDeck=studyDeckRepository.findById(id).orElseThrow(()->new StudyDeckNotFoundException("Study deck with id"+id+" not found:("));
+        return convertToDeckResponseDto(studyDeck);
     }
 
     public StudyDeck createDeck(DeckRequestDto dto){
