@@ -14,7 +14,7 @@ import com.example.demo.repository.StudyDeckRepository;
 
 @Service
 public class DeckMangementServiceImpl implements DeckManagementService{
-     @Autowired
+    @Autowired
     private StudyDeckRepository studyDeckRepository;
 
     public static DeckResponseDto convertToDeckResponseDto(StudyDeck studyDeck){
@@ -44,7 +44,7 @@ public class DeckMangementServiceImpl implements DeckManagementService{
         return convertToDeckResponseDto(studyDeck);
     }
 
-    public StudyDeck createDeck(DeckRequestDto dto){
+    public DeckResponseDto createDeck(DeckRequestDto dto){
         StudyDeck studyDeck=new StudyDeck();
         studyDeck.setTitle(dto.getTitle());
         studyDeck.setDescription(dto.getDescription());
@@ -54,10 +54,10 @@ public class DeckMangementServiceImpl implements DeckManagementService{
         // studyDeck.setSystemUser();
         StudyDeck saved=studyDeckRepository.save(studyDeck);
 
-        return saved;
+        return convertToDeckResponseDto(saved);
     }
 
-    public void deleteDeck(Long id){
+    public String deleteDeck(Long id){
         studyDeckRepository.deleteById(id);
     }
 
