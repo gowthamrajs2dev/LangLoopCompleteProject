@@ -11,13 +11,13 @@ import jakarta.validation.ConstraintViolationException;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(StudyDeckNotFoundException.class)
-    public ResponseEntity<String> printError(StudyDeckNotFoundException ex){
+    public ResponseEntity<String> studyDeckNotFound(StudyDeckNotFoundException ex){
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
-    public ResponseEntity<String> printConstraintViolationError(ConstraintViolationException ex){
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Constraint viloation!");
+    public ResponseEntity<String> ConstraintViolation(ConstraintViolationException ex){
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
     }
     
 }
