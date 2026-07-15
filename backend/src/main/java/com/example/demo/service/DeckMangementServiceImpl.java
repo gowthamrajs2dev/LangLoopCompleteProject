@@ -64,7 +64,7 @@ public class DeckMangementServiceImpl implements DeckManagementService{
         // studyDeckRepository.deleteById(id);
     }
 
-    public StudyDeck updateDeck(Long id,DeckRequestDto dto){
+    public DeckResponseDto updateDeck(Long id,DeckRequestDto dto){
         StudyDeck studyDeck=studyDeckRepository.findById(id)
         .orElseThrow(()->new StudyDeckNotFoundException("no id found for updating study deck"));
         studyDeck.setTitle(dto.getTitle());
@@ -74,6 +74,7 @@ public class DeckMangementServiceImpl implements DeckManagementService{
         // studyDeck.setOwnerId();
         // studyDeck.setSystemUser();
         StudyDeck saved=studyDeckRepository.save(studyDeck);
+        DeckResponseDto 
         return saved;
     }
 }
