@@ -17,18 +17,19 @@ public class DeckMangementServiceImpl implements DeckManagementService{
      @Autowired
     private StudyDeckRepository studyDeckRepository;
 
-    public static DeckRequestDto convertToDeckRequestDto(StudyDeck studyDeck){
-        DeckRequestDto dto=new DeckRequestDto();
+    public static DeckResponseDto convertToDeckResponseDto(StudyDeck studyDeck){
+        DeckResponseDto dto=new DeckResponseDto();
         dto.setCapacity(studyDeck.getCapacity());
         dto.setDescription(studyDeck.getDescription());
         dto.setTitle(studyDeck.getTitle());
+        dto.
         return dto;
     }
     public List<DeckResponseDto> getAllDecks(){
         List<StudyDeck>li=studyDeckRepository.findAll();
-        List<DeckRequestDto>result=new ArrayList<>();
+        List<DeckResponseDto>result=new ArrayList<>();
         for(StudyDeck studyDeck : li){
-            DeckRequestDto dto=convertToDeckResponseDto(studyDeck);
+            DeckResponseDto dto=convertToDeckResponseDto(studyDeck);
             result.add(dto);
         }
         return result;
