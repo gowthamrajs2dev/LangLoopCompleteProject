@@ -4,4 +4,5 @@ public class StudyDeckNotFoundException extends RuntimeException{
     public StudyDeckNotFoundException(String message){
         super(message);
     }
+    
 }
