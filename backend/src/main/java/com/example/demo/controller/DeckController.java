@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dto.DeckRequestDto;
+import com.example.demo.dto.DeckResponseDto;
 import com.example.demo.service.DeckMangementServiceImpl;
 
 import jakarta.validation.Valid;
@@ -28,30 +29,30 @@ public class DeckController {
     DeckMangementServiceImpl deckMangementServiceImpl;
 
     @GetMapping
-    public List<DeckRequestDto> getAllDecks(){
+    public List<DeckResponseDto> getAllDecks(){
         return deckMangementServiceImpl.getAllDecks();
     }
 
     @GetMapping("/{id}")
-    public DeckRequestDto getDeckById(@PathVariable Long id){
-        return deckMangementServiceImpl.getDeckById(id);
+    public DeckResponseDto getDeckById(@PathVariable Long id){
+        return deckMangementServiceImpl.getDeckById(id)
     }
 
     @PostMapping
-    public ResponseEntity<DeckRequestDto> createDeck(@Valid @RequestBody DeckRequestDto dto){
-        DeckRequestDto created=deckMangementServiceImpl.createDeck(dto);
+    public ResponseEntity<DeckResponseDto> createDeck(@Valid @RequestBody DeckRequestDto dto){
+        DeckResponseDto created=deckMangementServiceImpl.createDeck(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<DeckRequestDto> updateDeck(@PathVariable Long id,@Valid @RequestBody DeckRequestDto dto){
-        DeckRequestDto updated=deckMangementServiceImpl.updateDeck(id, dto);
+    public ResponseEntity<DeckResponseDto> updateDeck(@PathVariable Long id,@Valid @RequestBody DeckRequestDto dto){
+        DeckResponseDto updated=deckMangementServiceImpl.updateDeck(id, dto);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(updated);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteDeck(@PathVariable Long id){
         deckMangementServiceImpl.deleteDeck(id);
-        return ResponseEntity.ok("User with id: "+id+" deleted successfully!");
+        return ResponseEntity.ok("Study deck with id: "+id+" deleted successfully!");
     }
 }
