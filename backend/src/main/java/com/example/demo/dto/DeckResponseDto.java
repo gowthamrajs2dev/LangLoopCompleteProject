@@ -10,9 +10,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DeckResponseDto {
-    @NotBlank
+
     private String title;
     private String description;
-    @Positive
-    private int capacity
+    private int capacity;
+    private String mentorName
+    private SystemUser owner;
+    
 }
