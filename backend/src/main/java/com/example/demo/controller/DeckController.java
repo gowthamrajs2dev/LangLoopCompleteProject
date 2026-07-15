@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.dto.DeckRequestDto;
 import com.example.demo.service.DeckMangementServiceImpl;
 
+import jakarta.validation.Valid;
+
 
 
 @RestController
@@ -36,13 +38,13 @@ public class DeckController {
     }
 
     @PostMapping
-    public ResponseEntity<DeckRequestDto> createDeck(@RequestBody DeckRequestDto dto){
+    public ResponseEntity<DeckRequestDto> createDeck(@Valid @RequestBody DeckRequestDto dto){
         DeckRequestDto created=deckMangementServiceImpl.createDeck(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<DeckRequestDto> updateDeck(@PathVariable Long id,@RequestBody DeckRequestDto dto){
+    public ResponseEntity<DeckRequestDto> updateDeck(@PathVariable Long id,@Valid @RequestBody DeckRequestDto dto){
         DeckRequestDto updated=deckMangementServiceImpl.updateDeck(id, dto);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(updated);
     }

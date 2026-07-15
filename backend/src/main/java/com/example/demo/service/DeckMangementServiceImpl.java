@@ -65,6 +65,7 @@ public class DeckMangementServiceImpl implements DeckManagementService{
         // studyDeck.setMentorName();
         // studyDeck.setOwnerId();
         // studyDeck.setSystemUser();
+        studyDeckRepository.save(studyDeck);
         return dto;
     }
 }
