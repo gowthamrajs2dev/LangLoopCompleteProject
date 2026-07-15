@@ -27,7 +27,7 @@ public class StudyDeck {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @NotBlank //" " empty space is not allowed
+    // @NotBlank //" " empty space is not allowed
     private String title;
     private String description;
     @Positive
