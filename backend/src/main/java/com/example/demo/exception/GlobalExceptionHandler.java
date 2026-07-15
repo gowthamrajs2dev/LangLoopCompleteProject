@@ -16,6 +16,8 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
-    public ResponseEntity<String> printConstroint
+    public ResponseEntity<String> printConstraintViolationError(ConstraintViolationException ex){
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Constraint viloation!");
+    }
     
 }
