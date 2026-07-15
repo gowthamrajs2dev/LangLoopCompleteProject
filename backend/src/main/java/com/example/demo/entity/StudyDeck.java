@@ -33,7 +33,7 @@ public class StudyDeck {
     @Positive
     private int capacity; 
     @NotBlank 
-    private String mentorName
+    private String mentorName;
     // public enum DeskVisibility {
     //     PUBLIC,
     //     PRIVATE
