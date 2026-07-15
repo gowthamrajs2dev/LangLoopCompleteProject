@@ -27,14 +27,7 @@ public class Flashcard {
     private String pronunciationGuide;
     private String exampleSentence;
     private int orderIndex;
-    // @Size(min=1,max=5)
-    // private int difficultyRating;
-    // private int reviewCount;
-    // private LocalDateTime creationTime;
     @ManyToOne
     @JoinColumn(name = "deck_id")
     private StudyDeck deck;
-
-    // @OneToOne(mappedBy = "flashcard")
-    // private RetentionMetric retentionMetric;
 }
