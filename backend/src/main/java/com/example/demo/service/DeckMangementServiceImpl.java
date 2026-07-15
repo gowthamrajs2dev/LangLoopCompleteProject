@@ -60,7 +60,7 @@ public class DeckMangementServiceImpl implements DeckManagementService{
     public String deleteDeck(Long id){
         StudyDeck studyDeck = studyDeckRepository.findById(id).orElseThrow(()->new StudyDeckNotFoundException("id not found while deletion"));
         studyDeckRepository.delete(studyDeck);
-        return "Study deck with id "
+        return "Study deck with id "+id+" is deleted successfully";
         // studyDeckRepository.deleteById(id);
     }
 
