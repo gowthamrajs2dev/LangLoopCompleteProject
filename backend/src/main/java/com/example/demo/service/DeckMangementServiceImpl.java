@@ -47,9 +47,9 @@ public class DeckMangementServiceImpl implements DeckManagementService{
         studyDeck.setMentorName("to handle null");
         // studyDeck.setOwnerId();
         // studyDeck.setSystemUser();
-        studyDeckRepository.save(studyDeck);
+        StudyDeck saved=studyDeckRepository.save(studyDeck);
 
-        return dto;
+        return saved;
     }
 
     public void deleteDeck(Long id){
