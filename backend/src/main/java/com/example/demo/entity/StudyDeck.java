@@ -25,7 +25,7 @@ import lombok.NoArgsConstructor;
 @Table(name="system_deck")
 public class StudyDeck {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank 
     private String title;
