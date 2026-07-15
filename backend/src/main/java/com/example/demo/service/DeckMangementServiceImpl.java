@@ -49,7 +49,7 @@ public class DeckMangementServiceImpl implements DeckManagementService{
         studyDeck.setTitle(dto.getTitle());
         studyDeck.setDescription(dto.getDescription());
         studyDeck.setCapacity(dto.getCapacity());
-        studyDeck.setMentorName("to handle null");
+        studyDeck.setMentorName("mentor name");
         // studyDeck.setOwnerId();
         // studyDeck.setSystemUser();
         StudyDeck saved=studyDeckRepository.save(studyDeck);
@@ -74,7 +74,7 @@ public class DeckMangementServiceImpl implements DeckManagementService{
         // studyDeck.setOwnerId();
         // studyDeck.setSystemUser();
         StudyDeck saved=studyDeckRepository.save(studyDeck);
-        
+
         return convertToDeckResponseDto(saved);
     }
 }
