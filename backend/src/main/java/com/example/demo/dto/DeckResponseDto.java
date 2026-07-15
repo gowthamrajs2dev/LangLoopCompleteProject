@@ -4,9 +4,6 @@ import java.util.List;
 
 import com.example.demo.entity.Flashcard;
 import com.example.demo.entity.SystemUser;
-
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,5 +18,6 @@ public class DeckResponseDto {
     private int capacity;
     private String mentorName;
     private SystemUser owner;
-    private List<Flashcard> flashcards
+    private List<Flashcard> flashcards;
 }
+//no constraints added because this dto is used to send response to client

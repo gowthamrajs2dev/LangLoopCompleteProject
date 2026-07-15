@@ -27,31 +27,16 @@ public class StudyDeck {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    // @NotBlank //" " empty space is not allowed
+    @NotBlank 
     private String title;
     private String description;
     @Positive
     private int capacity; 
     @NotBlank 
     private String mentorName;
-    // public enum DeskVisibility {
-    //     PUBLIC,
-    //     PRIVATE
-    // }
-    // @Enumerated(EnumType.STRING)
-    // private DeskVisibility visibility;
-    // private int flashcardCount;
-    // private LocalDateTime creationTime;
-    // private LocalDateTime modifiedTime;
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private SystemUser owner;
     @OneToMany(mappedBy = "deck",cascade = CascadeType.ALL)
     private List<Flashcard> flashcards;
-    // @ManyToOne
-    // @JoinColumn(name = "language_track")
-    // private LanguageTrack languageTrack;
-
-    // @OneToOne(mappedBy = "deck")
-    // private StudySession studySession;
 }
