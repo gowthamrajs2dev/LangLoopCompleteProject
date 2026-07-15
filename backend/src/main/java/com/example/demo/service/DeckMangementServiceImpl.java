@@ -74,7 +74,7 @@ public class DeckMangementServiceImpl implements DeckManagementService{
         // studyDeck.setOwnerId();
         // studyDeck.setSystemUser();
         StudyDeck saved=studyDeckRepository.save(studyDeck);
-        DeckResponseDto 
-        return saved;
+        
+        return convertToDeckResponseDto(saved);
     }
 }

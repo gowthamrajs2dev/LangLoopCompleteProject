@@ -35,7 +35,7 @@ public class DeckController {
 
     @GetMapping("/{id}")
     public DeckResponseDto getDeckById(@PathVariable Long id){
-        return deckMangementServiceImpl.getDeckById(id)
+        return deckMangementServiceImpl.getDeckById(id);
     }
 
     @PostMapping
