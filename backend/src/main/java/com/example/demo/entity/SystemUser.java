@@ -40,7 +40,7 @@ public class SystemUser {
     // private String learningLanguage;
     // private LocalDateTime creationTime;
     // private LocalDateTime modifiedTime;
-    @OneToMany(mappedBy = "ownerId")
+    @OneToMany(mappedBy = "owner")
     private List<StudyDeck> decks;
 
     // @OneToOne(mappedBy = "user")
