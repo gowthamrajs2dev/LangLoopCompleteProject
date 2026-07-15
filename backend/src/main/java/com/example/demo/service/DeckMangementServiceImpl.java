@@ -43,8 +43,8 @@ public class DeckMangementServiceImpl implements DeckManagementService{
         StudyDeck studyDeck=new StudyDeck();
         studyDeck.setTitle(dto.getTitle());
         studyDeck.setDescription(dto.getDescription());
-        studyDeck.setCapacity(dto.getCapacity())
-        // studyDeck.setMentorName();
+        studyDeck.setCapacity(dto.getCapacity());
+        studyDeck.setMentorName("to handle null");
         // studyDeck.setOwnerId();
         // studyDeck.setSystemUser();
         studyDeckRepository.save(studyDeck);
