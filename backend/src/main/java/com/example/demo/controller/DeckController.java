@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dto.DeckRequestDto;
 import com.example.demo.dto.DeckResponseDto;
-import com.example.demo.exception.StudyDeckNotFoundException;
 import com.example.demo.service.DeckMangementServiceImpl;
 
 import jakarta.validation.Valid;
@@ -35,7 +34,7 @@ public class DeckController {
     }
 
     @GetMapping("/{id}")
-    public DeckResponseDto getDeckById(@PathVariable Long id) throws StudyDeckNotFoundException{
+    public DeckResponseDto getDeckById(@PathVariable Long id){
         return deckMangementServiceImpl.getDeckById(id);
     }
 
