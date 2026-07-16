@@ -18,6 +18,6 @@ public class SpacedRetentionService {
     // }
 
     public List<RetentionMetric> getDueReviews(Long userId){
-        return retensionMetricRepository.findAllById(userId)
+        return retensionMetricRepository.findById(userId)
     }
 }
