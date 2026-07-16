@@ -13,10 +13,13 @@ public class SecurityConfig {
         .authorizeHttpRequests(
             auth->auth
             .requestMatchers(
-                "login","/register",""
+                "/login","/register","/post"
             ).permitAll()
-            .requestMatchers("/swagger-ui/**","swagger-ui.html","/v3/api-docs/**").permitAll()
-
+            .requestMatchers(
+                "/swagger-ui/**","swagger-ui.html","/v3/api-docs/**"
+            ).permitAll()
+            .requestMatchers("/delete/**").hasRole("LINGUIST")
+            .anyRequest().authenticated()
         )
     }
 }
