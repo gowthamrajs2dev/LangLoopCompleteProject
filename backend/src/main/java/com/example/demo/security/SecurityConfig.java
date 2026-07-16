@@ -12,7 +12,10 @@ public class SecurityConfig {
         http.csrf().disable()
         .authorizeHttpRequests(
             auth->auth
-            .requestMatchers(null)
+            .requestMatchers(
+                "login","/register"
+            ).permitAll()
+            .requestMatchers("")
         )
     }
 }
