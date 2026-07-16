@@ -39,7 +39,7 @@ public class DeckMangementServiceImpl implements DeckManagementService{
     }
 
 
-    public DeckResponseDto getDeckById(Long id) throws StudyDeckNotFoundException{
+    public DeckResponseDto getDeckById(Long id) {
         StudyDeck studyDeck=studyDeckRepository.findById(id).orElseThrow(()->new StudyDeckNotFoundException("Study deck with id"+id+" not found:("));
         return convertToDeckResponseDto(studyDeck);
     }
@@ -57,14 +57,14 @@ public class DeckMangementServiceImpl implements DeckManagementService{
         return convertToDeckResponseDto(saved);
     }
 
-    public String deleteDeck(Long id) throws StudyDeckNotFoundException{
+    public String deleteDeck(Long id){
         StudyDeck studyDeck = studyDeckRepository.findById(id).orElseThrow(()->new StudyDeckNotFoundException("id not found while deletion"));
         studyDeckRepository.delete(studyDeck);
         return "Study deck with id "+id+" is deleted successfully";
         // studyDeckRepository.deleteById(id);
     }
 
-    public DeckResponseDto updateDeck(Long id,DeckRequestDto dto) throws StudyDeckNotFoundException{
+    public DeckResponseDto updateDeck(Long id,DeckRequestDto dto) {
         StudyDeck studyDeck=studyDeckRepository.findById(id)
         .orElseThrow(()->new StudyDeckNotFoundException("no id found for updating study deck"));
         studyDeck.setTitle(dto.getTitle());
