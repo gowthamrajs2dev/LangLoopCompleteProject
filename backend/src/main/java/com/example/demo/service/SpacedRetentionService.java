@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.entity.RetentionMetric;
 import com.example.demo.repository.RetensionMetricRepository;
 
 @Service
@@ -17,6 +18,6 @@ public class SpacedRetentionService {
     // }
 
     public List<RetentionMetric> getDueReviews(Long userId){
-        
+        return retensionMetricRepository.findAllById(userId)
     }
 }
