@@ -9,6 +9,7 @@ import com.example.demo.dto.FlashcardResponseDto;
 public class FlashcardService {
 
     /* @Id
+    Flashcard entity:
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String frontContent;
@@ -20,12 +21,12 @@ public class FlashcardService {
     @JoinColumn(name = "deck_id")
     private StudyDeck deck; 
     
-    
+    requst dto
      private String frontContent;
     private String backContent;
     private int orderIndex;
     */
     public FlashcardResponseDto createFlashCard(Long deckId,FlashcardRequestDto dto){
-
+        
     }
 }
