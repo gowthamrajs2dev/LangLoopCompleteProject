@@ -39,6 +39,10 @@ public class FlashcardService {
 
         Flashcard result=flashcardRepository.save(flashcard);
         FlashcardResponseDto responseDto=new FlashcardResponseDto();
-        responseDto.setBackContent(responseDto);
+        responseDto.setBackContent(result.getBackContent());
+        responseDto.setFrontContent(result.getFrontContent());
+        responseDto.setOrderIndex(result.getOrderIndex());
+        return responseDto;
+
     }
 }
