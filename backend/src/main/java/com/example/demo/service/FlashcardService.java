@@ -33,6 +33,11 @@ public class FlashcardService {
     FlashcardRepository flashcardRepository;
     public FlashcardResponseDto createFlashCard(Long deckId,FlashcardRequestDto dto){
         Flashcard flashcard=new Flashcard();
-        flashcard.setFrontContent(null);
+        flashcard.setFrontContent(dto.getFrontContent());
+        flashcard.setBackContent(dto.getBackContent());
+        flashcard.setOrderIndex(dto.getOrderIndex());
+
+        Flashcard result=flashcardRepository.save(flashcard);
+        
     }
 }
