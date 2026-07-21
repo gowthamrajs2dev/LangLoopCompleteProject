@@ -9,7 +9,7 @@ import java.util.List;
 import com.example.demo.dto.DeckRequestDto;
 import com.example.demo.dto.DeckResponseDto;
 import com.example.demo.entity.StudyDeck;
-import com.example.demo.exception.StudyDeckNotFoundException;
+import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.StudyDeckRepository;
 
 @Service
@@ -40,7 +40,7 @@ public class DeckMangementServiceImpl implements DeckManagementService{
 
 
     public DeckResponseDto getDeckById(Long id) {
-        StudyDeck studyDeck=studyDeckRepository.findById(id).orElseThrow(()->new StudyDeckNotFoundException("Study deck with id"+id+" not found:("));
+        StudyDeck studyDeck=studyDeckRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("Study deck with id"+id+" not found:("));
         return convertToDeckResponseDto(studyDeck);
     }
 
@@ -58,7 +58,7 @@ public class DeckMangementServiceImpl implements DeckManagementService{
     }
 
     public String deleteDeck(Long id){
-        StudyDeck studyDeck = studyDeckRepository.findById(id).orElseThrow(()->new StudyDeckNotFoundException("id not found while deletion"));
+        StudyDeck studyDeck = studyDeckRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("id not found while deletion"));
         studyDeckRepository.delete(studyDeck);
         return "Study deck with id "+id+" is deleted successfully";
         // studyDeckRepository.deleteById(id);
@@ -66,7 +66,7 @@ public class DeckMangementServiceImpl implements DeckManagementService{
 
     public DeckResponseDto updateDeck(Long id,DeckRequestDto dto) {
         StudyDeck studyDeck=studyDeckRepository.findById(id)
-        .orElseThrow(()->new StudyDeckNotFoundException("no id found for updating study deck"));
+        .orElseThrow(()->new ResourceNotFoundException("no id found for updating study deck"));
         studyDeck.setTitle(dto.getTitle());
         studyDeck.setCapacity(dto.getCapacity());
         studyDeck.setDescription(dto.getDescription());
