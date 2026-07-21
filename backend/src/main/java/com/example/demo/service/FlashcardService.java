@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.FlashcardRequestDto;
 import com.example.demo.dto.FlashcardResponseDto;
+import com.example.demo.entity.Flashcard;
 import com.example.demo.repository.FlashcardRepository;
 
 @Service
@@ -31,6 +32,7 @@ public class FlashcardService {
     @Autowired
     FlashcardRepository flashcardRepository;
     public FlashcardResponseDto createFlashCard(Long deckId,FlashcardRequestDto dto){
-        
+        Flashcard flashcard=new Flashcard();
+        flashcard.setFrontContent(null);
     }
 }
