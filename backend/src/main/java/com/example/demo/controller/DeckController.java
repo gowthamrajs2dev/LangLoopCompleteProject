@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dto.DeckRequestDto;
 import com.example.demo.dto.DeckResponseDto;
-import com.example.demo.service.DeckMangementServiceImpl;
+import com.example.demo.service.DeckManagementService;
 
 import jakarta.validation.Valid;
 
@@ -26,33 +26,33 @@ import jakarta.validation.Valid;
 @RequestMapping("/api/decks")
 public class DeckController {
     @Autowired
-    DeckMangementServiceImpl deckMangementServiceImpl;
+    DeckManagementService deckManagementService; //lose coupling
 
     @GetMapping
     public List<DeckResponseDto> getAllDecks(){
-        return deckMangementServiceImpl.getAllDecks();
+        return deckManagementService.getAllDecks();
     }
 
     @GetMapping("/{id}")
     public DeckResponseDto getDeckById(@PathVariable Long id){
-        return deckMangementServiceImpl.getDeckById(id);
+        return deckManagementService.getDeckById(id);
     }
 
     @PostMapping
     public ResponseEntity<DeckResponseDto> createDeck(@Valid @RequestBody DeckRequestDto dto){
-        DeckResponseDto created=deckMangementServiceImpl.createDeck(dto);
+        DeckResponseDto created=deckManagementService.createDeck(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<DeckResponseDto> updateDeck(@PathVariable Long id,@Valid @RequestBody DeckRequestDto dto){
-        DeckResponseDto updated=deckMangementServiceImpl.updateDeck(id, dto);
+        DeckResponseDto updated=deckManagementService.updateDeck(id, dto);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(updated);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteDeck(@PathVariable Long id){
-        deckMangementServiceImpl.deleteDeck(id);
+        deckManagementService.deleteDeck(id);
         return ResponseEntity.ok("Study deck with id: "+id+" deleted successfully!");
     }
 }
