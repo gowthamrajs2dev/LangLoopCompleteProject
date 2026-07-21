@@ -1,9 +1,11 @@
 package com.example.demo.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.FlashcardRequestDto;
 import com.example.demo.dto.FlashcardResponseDto;
+import com.example.demo.repository.FlashcardRepository;
 
 @Service
 public class FlashcardService {
@@ -26,6 +28,8 @@ public class FlashcardService {
     private String backContent;
     private int orderIndex;
     */
+    @Autowired
+    FlashcardRepository flashcardRepository;
     public FlashcardResponseDto createFlashCard(Long deckId,FlashcardRequestDto dto){
         
     }
