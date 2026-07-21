@@ -10,6 +10,7 @@ import com.example.demo.dto.DeckRequestDto;
 import com.example.demo.dto.DeckResponseDto;
 import com.example.demo.entity.StudyDeck;
 import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.exception.StudyDeckNotFoundException;
 import com.example.demo.repository.StudyDeckRepository;
 
 @Service
