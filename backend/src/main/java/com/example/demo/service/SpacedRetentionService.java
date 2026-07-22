@@ -11,13 +11,7 @@ import com.example.demo.repository.RetensionMetricRepository;
 @Service
 public class SpacedRetentionService {
 
-    // @Autowired
-    // private RetensionMetricRepository retensionMetricRepository;
-    // // public updatedRetentionMetric(Long userId,Long cardId,Integer quality){
-
-    // // }
-
-    // public List<RetentionMetric> getDueReviews(Long userId){
-    //     return retensionMetricRepository.findById(userId)
-    // }
+    @Autowired
+    private RetensionMetricRepository retensionMetricRepository;
+    public void update
 }
