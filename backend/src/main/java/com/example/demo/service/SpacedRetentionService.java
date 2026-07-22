@@ -13,5 +13,8 @@ public class SpacedRetentionService {
 
     @Autowired
     private RetensionMetricRepository retensionMetricRepository;
-    public void update
+    public void updateRetentionMetric(Long userId,Long cardId,int quality)
+    {
+        
+    }
 }
