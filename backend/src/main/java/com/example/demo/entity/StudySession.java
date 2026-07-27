@@ -26,7 +26,7 @@ public class StudySession {
     @OneToOne
     @JoinColumn(name = "deck_id")
     private StudyDeck deck;
-    private int score;  //include validation score should be in some range
+    private Integer score;  //include validation score should be in some range
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     

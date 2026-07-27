@@ -1,5 +1,7 @@
 package com.example.demo.dto;
 
+import java.time.LocalDateTime;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,24 +10,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class StudySessionResponseDto {
-    
+    private Long id;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
+    private Integer score;
+    private Long userId;
+    private Long deckId;
 }
-
-/*
- session.getId(),
-session.getStartTime(),
-session.getEndTime(),
-session.getScore(),
-session.getUser().getId(),
-session.getDeck().getId()
-*/
 /*
 
 private Long id;
 private SystemUser user;
-@JoinColumn(name = "deck_id")
 private StudyDeck deck;
-private int score;  //include validation score should be in some range
+private int score;  
 private LocalDateTime startTime;
 private LocalDateTime endTime;
 */
