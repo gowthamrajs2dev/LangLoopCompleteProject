@@ -31,7 +31,17 @@ public class DeckMangementServiceImpl implements DeckManagementService{
 
     }
 
-    private DeckResponseDtor toReso
+    private DeckResponseDto toResponseDto(StudyDeck deck){
+        return new DeckResponseDto{
+            deck.getId(),
+            deck.getTitle(),
+            deck.getDescription(),
+            deck.getCapacity(),
+            deck.getMentorName(),
+            deck.getOwnerId()
+        }
+    }
+
     public List<DeckResponseDto> getAllDecks(){
         return studyDeckRepository.findAll().stream()
         .map(this::toResponseDto)
