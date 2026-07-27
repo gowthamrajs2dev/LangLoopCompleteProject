@@ -8,5 +8,6 @@ import com.example.demo.entity.StudySession;
 
 public interface StudySessionRepository extends JpaRepository<StudySession,Long> {
     List<StudySession> findByUser_IdOrderByStartTimeDesc(Long userId);
-    List<
+    List<StudySession> findByDeck_Id(Long deckId);
+    long countByUser_Id(Long userId);
 }
