@@ -42,6 +42,8 @@ public class RetentionMetric {
     private SystemUser user;
 
     @ManyToOne
+    @JoinColumn(name="card_id")
+    private Flashcard flashcard;
 
     private Long cardId;
 }
