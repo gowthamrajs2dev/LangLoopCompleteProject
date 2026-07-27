@@ -21,6 +21,7 @@ public class SecurityConfig {
             .requestMatchers("/delete/**").hasRole("LINGUIST")
             .anyRequest().authenticated()
         );
+        
         return http.build();
     }
 }
