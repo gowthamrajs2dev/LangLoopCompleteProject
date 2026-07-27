@@ -29,7 +29,7 @@ public class DeckController {
     @Autowired
     DeckManagementService deckManagementService; //lose coupling
 
-   @GetMapping
+    @GetMapping
     public ResponseEntity<List<DeckResponseDto>> getAllDecks() {
         return ResponseEntity.ok(deckManagementService.getAllDecks());
     }
@@ -38,10 +38,7 @@ public class DeckController {
     public ResponseEntity<DeckResponseDto> getDeckById(@PathVariable Long id) {
         return ResponseEntity.ok(deckManagementService.getDeckById(id));
     }
- 
-    // Enforcement also lives in DeckManagementServiceImpl via @PreAuthorize;
-    // repeating it here is intentional defense-in-depth so the rule is
-    // visible at the API boundary too, not only in the service.
+
     @PostMapping
     @PreAuthorize("hasAnyRole('LINGUIST', 'ADMIN')")
     public ResponseEntity<DeckResponseDto> createDeck(@Valid @RequestBody DeckRequestDto dto) {
@@ -57,9 +54,7 @@ public class DeckController {
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<String> deleteDeck(@PathVariable Long id) {
-        deckManagementService.deleteDeck(id);
-        return ResponseEntity.ok()
-                .body("StudyDeck deleted successfully.");
-    }
+    public String deleteDeck(@PathVariable Long id) {
+        return deckManagementService.deleteDeck(id);
+        
 }
