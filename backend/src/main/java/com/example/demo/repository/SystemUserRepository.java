@@ -8,5 +8,5 @@ import com.example.demo.entity.SystemUser;
 
 public interface SystemUserRepository extends JpaRepository<SystemUser,Long> {
     public Optional<SystemUser>findByUsername(String username);
-    public existsByUsername(String username);
+    public boolean existsByUsername(String username);
 }
