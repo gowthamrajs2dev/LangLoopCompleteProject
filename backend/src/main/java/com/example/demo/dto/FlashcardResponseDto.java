@@ -8,8 +8,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FlashcardResponseDto {
-    private 
+    private Long id;
     private String frontContent;
     private String backContent;
-    private int orderIndex
+    private Integer orderIndex;
+    private Long deckId;
 }
