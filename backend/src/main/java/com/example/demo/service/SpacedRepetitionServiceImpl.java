@@ -44,8 +44,6 @@ public class SpacedRepetitionServiceImpl implements SpacedRepetitionService {
  
         int newIntervalDays;
         if (quality < 3) {
-            // Failed recall: reset the schedule, but keep the updated ease
-            // factor so long-term difficulty tracking isn't lost.
             newIntervalDays = 1;
         } else if (metric.getIntervalDays() == null || metric.getIntervalDays() == 0) {
             newIntervalDays = 1;

@@ -27,7 +27,7 @@ public class RetentionMetric {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private double easeFactor=2.5;
-    private int intervalDays;
+    private Integer intervalDays;
     private LocalDateTime nextReviewDate;
     public enum MasteryLevel{
         NEW,
