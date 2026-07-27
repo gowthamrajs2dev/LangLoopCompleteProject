@@ -27,8 +27,4 @@ public class Flashcard {
     private String pronunciationGuide;
     private String exampleSentence;
     private int orderIndex;
-    @ManyToOne
-    @JoinColumn(name = "deck_id")
-    private StudyDeck deck;
-    
 }
