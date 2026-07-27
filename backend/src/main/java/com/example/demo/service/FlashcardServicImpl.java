@@ -19,9 +19,9 @@ import jakarta.transaction.Transactional;
 public class FlashcardServicImpl implements FlashcardService{
     
     @Autowired
-    private final FlashcardRepository flashcardRepository;
+    private FlashcardRepository flashcardRepository;
     @Autowired
-    private  StudyDeckRepository studyDeckRepository;
+    private StudyDeckRepository studyDeckRepository;
  
     
  
