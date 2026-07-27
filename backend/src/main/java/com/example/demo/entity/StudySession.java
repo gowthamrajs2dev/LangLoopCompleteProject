@@ -10,13 +10,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
-@AllArgsConstructor
 @Data
 @Entity
 public class StudySession {
@@ -29,10 +26,20 @@ public class StudySession {
     private LocalDateTime endTime;
     @Column(nullable = false)
     private Integer score;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     private SystemUser user;
+    
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "deck_id", nullable = false)
     private StudyDeck deck;
+    public StudySession(LocalDateTime startTime, LocalDateTime endTime, Integer score,
+                        SystemUser user, StudyDeck deck) {
+    this.startTime = startTime;
+    this.endTime = endTime;
+    this.score = score;
+    this.user = user;
+    this.deck = deck;
+}
 }
