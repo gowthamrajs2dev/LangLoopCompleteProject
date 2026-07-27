@@ -25,6 +25,10 @@ public class SpacedRepetitionServiceImpl implements SpacedRepetitionService {
         if(quality == null || quality <0 || quality>5){
             throw new IllegalArgumentException("Quality must be between 0 and 5");
         }
+
+        RetentionMetricRepository metric = retensionMetricRepository
+                    .findByUser_IdAndFlashcard_Id(userId,cardId)
+                    .orElseGet(()->createNewMetric(userId,cardId))
     }
 
 }
