@@ -36,10 +36,10 @@ public class StudySession {
     private StudyDeck deck;
     public StudySession(LocalDateTime startTime, LocalDateTime endTime, Integer score,
                         SystemUser user, StudyDeck deck) {
-    this.startTime = startTime;
-    this.endTime = endTime;
-    this.score = score;
-    this.user = user;
-    this.deck = deck;
-}
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.score = score;
+        this.user = user;
+        this.deck = deck;
+    }
 }
