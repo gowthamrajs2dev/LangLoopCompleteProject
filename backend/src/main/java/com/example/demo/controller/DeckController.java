@@ -56,5 +56,5 @@ public class DeckController {
     @PreAuthorize("hasRole('ADMIN')")
     public String deleteDeck(@PathVariable Long id) {
         return deckManagementService.deleteDeck(id);
-        
+    }   
 }
