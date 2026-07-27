@@ -93,6 +93,6 @@ public class DeckMangementServiceImpl implements DeckManagementService{
     public String deleteDeck(Long id){
         StudyDeck deck = findDeckOrThrow(id);
         studyDeckRepository.delete(deck);
-        return ""
+        return "StudyDeck deleted successfully";
     }
 }
