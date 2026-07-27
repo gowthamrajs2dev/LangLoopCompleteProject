@@ -79,5 +79,8 @@ public class DeckMangementServiceImpl implements DeckManagementService{
     @Override
     @PreAuthorize("hasAnyRole('LINGUIST','ADMIN')")
     @Transactional
-    public DeckResponseDto updateDeck(Long id,)
+    public DeckResponseDto updateDeck(Long id,DeckRequestDto dto){
+        StudyDeck deck=findDeckOrThrow(id);
+        deck.setTitle();
+    }
 }
