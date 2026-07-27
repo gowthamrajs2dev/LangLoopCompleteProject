@@ -38,19 +38,19 @@ public class DeckController {
         return deckManagementService.getDeckById(id);
     }
 
-    @PostMapping
+    @PostMapping //admin or linguist
     public ResponseEntity<DeckResponseDto> createDeck(@Valid @RequestBody DeckRequestDto dto){
         DeckResponseDto created=deckManagementService.createDeck(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{id}") //Admin or linguist
     public ResponseEntity<DeckResponseDto> updateDeck(@PathVariable Long id,@Valid @RequestBody DeckRequestDto dto){
         DeckResponseDto updated=deckManagementService.updateDeck(id, dto);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(updated);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}") //only ADMIN
     public ResponseEntity<String> deleteDeck(@PathVariable Long id){
         deckManagementService.deleteDeck(id);
         return ResponseEntity.ok("Study deck with id: "+id+" deleted successfully!");
