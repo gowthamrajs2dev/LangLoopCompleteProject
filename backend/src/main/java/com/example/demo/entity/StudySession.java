@@ -2,6 +2,7 @@ package com.example.demo.entity;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,6 +21,9 @@ public class StudySession {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
     @OneToOne
     @JoinColumn(name = "user_id")
     private SystemUser user;
@@ -27,7 +31,5 @@ public class StudySession {
     @JoinColumn(name = "deck_id")
     private StudyDeck deck;
     private Integer score;  //include validation score should be in some range
-    private LocalDateTime startTime;
-    private LocalDateTime endTime
     
 }
