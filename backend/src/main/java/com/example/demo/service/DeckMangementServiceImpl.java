@@ -48,6 +48,11 @@ public class DeckMangementServiceImpl implements DeckManagementService{
         .map(this::toResponseDto)
         .collect(Collectors.toList());
     }
-
-    
+    private StudyDeck findDeckOrThrow(Long id) throws ResourceNotFoundException{
+        StudyDeck studyDeck=studyDeckRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("StudyDeck not found with id: "+id));
+    }
+    @Override
+    public DeckResponseDto getDeckById(Long id){
+        return toResponseDto(findDeckOrThrow(id));
+    }
 }
