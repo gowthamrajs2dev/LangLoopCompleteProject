@@ -23,7 +23,7 @@ public class DeckMangementServiceImpl implements DeckManagementService{
         dto.setDescription(studyDeck.getDescription());
         dto.setTitle(studyDeck.getTitle());
         dto.setId(studyDeck.getId());
-        dto.setOwner(studyDeck.getOwner());
+        dto.setOwnerId(studyDeck.getOwnerId());
         dto.setMentorName(studyDeck.getMentorName());
         dto.setFlashcards(studyDeck.getFlashcards());
         return dto;
