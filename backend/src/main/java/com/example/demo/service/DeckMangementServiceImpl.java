@@ -72,6 +72,12 @@ public class DeckMangementServiceImpl implements DeckManagementService{
         deck.setMentorName(owner.getUsername());
         deck.setOwnerId(owner.getId());
 
-        return toResponseDto()
+        return toResponseDto(studyDeckRepository.save(deck));
     }
+
+
+    @Override
+    @PreAuthorize("hasAnyRole('LINGUIST','ADMIN')")
+    @Transactional
+    public DeckResponseDto updateDeck(Long id,)
 }
