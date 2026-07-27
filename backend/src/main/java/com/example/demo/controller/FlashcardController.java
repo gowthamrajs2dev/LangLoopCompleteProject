@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,7 +23,8 @@ public class FlashcardController {
         return flashcardService.getCardsByDeck(id);
     }
 
-    public FlashcardResponseDto createFlashcard(Long deckId,FlashcardRequestDto dto){
-        return flashcardService.crea
+    @PostMapping("/{id}/cards")
+    public FlashcardResponseDto createFlashcard(@PathVariable Long id,FlashcardRequestDto dto){
+        return flashcardService.createFlashCard(id, dto);
     }
 }
