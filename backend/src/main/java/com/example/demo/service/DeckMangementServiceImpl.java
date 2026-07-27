@@ -88,5 +88,11 @@ public class DeckMangementServiceImpl implements DeckManagementService{
     }
 
     @Override
-    
+    @PreAuthorize("hasRole('ADMIN')")
+    @Transactional
+    public String deleteDeck(Long id){
+        StudyDeck deck = findDeckOrThrow(id);
+        studyDeckRepository.delete(deck);
+        return ""
+    }
 }
