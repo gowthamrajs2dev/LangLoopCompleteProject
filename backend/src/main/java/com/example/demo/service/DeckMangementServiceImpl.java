@@ -30,5 +30,8 @@ public class DeckMangementServiceImpl implements DeckManagementService{
 
     }
 
-    
+    public List<DeckResponseDto> getAllDecks(){
+        return studyDeckRepository.findAll().stream()
+        .map(this::toResponseDto)
+    }
 }
