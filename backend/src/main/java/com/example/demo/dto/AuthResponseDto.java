@@ -11,9 +11,9 @@ public class AuthResponseDto {
     private String token;
     private String username;
     private UserRole role;
-    public AuthResponseDto(String token,String username,UserRole role){
+    public AuthResponseDto(String token,String username,String role){
         this.token=token;
-        this.role=role;
+        this.role=;
         this.username=username;
     }
 }
