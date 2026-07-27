@@ -17,12 +17,3 @@ public class StudySessionResponseDto {
     private Long userId;
     private Long deckId;
 }
-/*
-
-private Long id;
-private SystemUser user;
-private StudyDeck deck;
-private int score;  
-private LocalDateTime startTime;
-private LocalDateTime endTime;
-*/
