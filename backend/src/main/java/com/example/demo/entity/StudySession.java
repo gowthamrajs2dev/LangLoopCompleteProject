@@ -28,6 +28,6 @@ public class StudySession {
     private StudyDeck deck;
     private Integer score;  //include validation score should be in some range
     private LocalDateTime startTime;
-    private LocalDateTime endTime;
+    private LocalDateTime endTime
     
 }
