@@ -30,4 +30,5 @@ public class Flashcard {
     @ManyToOne
     @JoinColumn(name = "deck_id")
     private StudyDeck deck;
+    
 }
