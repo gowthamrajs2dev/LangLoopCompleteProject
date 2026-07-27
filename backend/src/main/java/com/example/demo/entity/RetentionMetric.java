@@ -46,4 +46,8 @@ public class RetentionMetric {
     private Flashcard flashcard;
 
     private Long cardId;
+
+    public RetentionMetric(){
+        
+    }
 }
