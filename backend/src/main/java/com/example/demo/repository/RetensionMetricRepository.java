@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.demo.entity.RetentionMetric;
 
 public interface RetensionMetricRepository extends JpaRepository<RetentionMetric,Long>{
-    List<RetentionMetric> findByUser_IdAndNextReviewDataLessThanEqualsOrderByNext
+    List<RetentionMetric> findByUser_IdAndNextReviewDataLessThanEqualsOrderByNextReviewDataAsc(Long userId,LocalDateTime asOf)
 
 }
