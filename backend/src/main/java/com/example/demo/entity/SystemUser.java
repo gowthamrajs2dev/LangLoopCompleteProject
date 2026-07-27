@@ -33,6 +33,6 @@ public class SystemUser {
     private String password;
     @Enumerated(EnumType.STRING)
     private UserRole role;
-    @OneToMany(mappedBy = "owner")
+    @OneToMany
     private List<StudyDeck> decks;
 }
