@@ -11,6 +11,7 @@ import java.util.List;
 import com.example.demo.dto.DeckRequestDto;
 import com.example.demo.dto.DeckResponseDto;
 import com.example.demo.entity.StudyDeck;
+import com.example.demo.entity.SystemUser;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.StudyDeckRepository;
 import com.example.demo.repository.SystemUserRepository;
@@ -22,10 +23,10 @@ public class DeckMangementServiceImpl implements DeckManagementService{
     @Autowired
     private SystemUserRepository systemUserRepository;
 
-    private currentAuthenticatedUser(){
+    private SystemUser currentAuthenticatedUser(){
         Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
         return systemUserRepository.findByUsername(authentication.getName())
-        
+        .orElseThrow(()->new ResourceNotFoundException("Authencticated user not found : "+authentication.getName()));
 
     }
 
