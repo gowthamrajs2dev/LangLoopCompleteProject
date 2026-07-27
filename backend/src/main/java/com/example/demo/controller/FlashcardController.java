@@ -25,7 +25,7 @@ public class FlashcardController {
     @Autowired
     private FlashcardService flashcardService;
     
-     @GetMapping
+    @GetMapping
     public ResponseEntity<List<FlashcardResponseDto>> getCardsByDeck(@PathVariable("id") Long deckId) {
         return ResponseEntity.ok(flashcardService.getCardsByDeck(deckId));
     }
