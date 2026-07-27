@@ -28,7 +28,9 @@ public class SpacedRepetitionServiceImpl implements SpacedRepetitionService {
 
         RetentionMetricRepository metric = retensionMetricRepository
                     .findByUser_IdAndFlashcard_Id(userId,cardId)
-                    .orElseGet(()->createNewMetric(userId,cardId))
+                    .orElseGet(()->createNewMetric(userId,cardId));
+        double updatedEase = metric.getEaseFactor()+(0.1)
+
     }
 
 }
