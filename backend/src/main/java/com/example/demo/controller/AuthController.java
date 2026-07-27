@@ -13,6 +13,8 @@ import com.example.demo.dto.LoginRequestDto;
 import com.example.demo.dto.RegisterRequestDto;
 import com.example.demo.service.AuthService;
 
+import jakarta.validation.Valid;
+
 
 
 @RestController
@@ -20,14 +22,16 @@ import com.example.demo.service.AuthService;
 public class AuthController {
     @Autowired
     AuthService authService;
+    
     @PostMapping("/register")
-    public ResponseEntity<AuthResponseDto> register(@RequestBody RegisterRequestDto dto){
-        return ResponseEntity.status(HttpStatus.CREATED).body();
+    public ResponseEntity<AuthResponseDto> register(@Valid @RequestBody RegisterRequestDto dto) {
+        AuthResponseDto response = authService.register(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
-
+ 
     @PostMapping("/login")
-    public ResponseEntity<AuthResponseDto> login(@RequestBody LoginRequestDto dto){
-        return ResponseEntity.status(HttpStatus.OK).body();
+    public ResponseEntity<AuthResponseDto> login(@Valid @RequestBody LoginRequestDto dto) {
+        AuthResponseDto response = authService.login(dto);
+        return ResponseEntity.ok(response);
     }
-
 }
