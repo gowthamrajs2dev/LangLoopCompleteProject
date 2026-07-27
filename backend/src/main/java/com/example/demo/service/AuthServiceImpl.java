@@ -24,6 +24,7 @@ public class AuthServiceImpl implements AuthService{
     @Autowired
     private final JwtUtil jwtUtil;
 
+    
     @Override
     @Transactional
     public AuthResponseDto register(RegisterRequestDto dto) {
