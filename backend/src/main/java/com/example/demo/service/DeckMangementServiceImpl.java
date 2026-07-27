@@ -28,6 +28,7 @@ public class DeckMangementServiceImpl implements DeckManagementService{
         dto.setFlashcards(studyDeck.getFlashcards());
         return dto;
     }
+    @Override
     public List<DeckResponseDto> getAllDecks(){
         List<StudyDeck>li=studyDeckRepository.findAll();
         List<DeckResponseDto>result=new ArrayList<>();
