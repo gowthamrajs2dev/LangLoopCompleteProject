@@ -1,9 +1,6 @@
 package com.example.demo.dto;
 
-import java.util.List;
 
-import com.example.demo.entity.Flashcard;
-import com.example.demo.entity.SystemUser;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
