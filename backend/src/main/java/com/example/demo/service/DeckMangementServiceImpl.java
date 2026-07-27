@@ -67,5 +67,11 @@ public class DeckMangementServiceImpl implements DeckManagementService{
         SystemUser owner= currentAuthenticatedUser();
         StudyDeck deck = new StudyDeck();
         deck.setTitle(dto.getTitle());
+        deck.setDescription(dto.getDescription());
+        deck.setCapacity(dto.getCapacity());
+        deck.setMentorName(owner.getUsername());
+        deck.setOwnerId(owner.getId());
+
+        return toResponseDto()
     }
 }
