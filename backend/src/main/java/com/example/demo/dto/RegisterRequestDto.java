@@ -2,6 +2,7 @@ package com.example.demo.dto;
 
 import com.example.demo.entity.UserRole;
 
+import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,9 +14,7 @@ import lombok.NoArgsConstructor;
 public class RegisterRequestDto {
     private String username;
     private String password;
-    public enum Role{
-        LEAARN
-    }
-    @Enumerated
+   
+    @Enumerated(EnumType.STRING)
     private UserRole role;
 }
