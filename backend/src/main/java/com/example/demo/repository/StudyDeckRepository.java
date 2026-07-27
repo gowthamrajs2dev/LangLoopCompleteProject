@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.demo.entity.StudyDeck;
 
 public interface StudyDeckRepository extends JpaRepository<StudyDeck,Long>{
-    
+    public StudyDeck findByOwn
     public List<StudyDeck> findByTitleContaining(String keyword);
 }
