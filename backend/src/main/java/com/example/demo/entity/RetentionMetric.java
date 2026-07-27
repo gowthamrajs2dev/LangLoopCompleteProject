@@ -42,12 +42,16 @@ public class RetentionMetric {
     private SystemUser user;
 
     @ManyToOne
-    @JoinColumn(name="card_id") //unit
+    @JoinColumn(name="card_id") 
     private Flashcard flashcard;
 
     private Long cardId;
 
-    public RetentionMetric(SystemUser user,Flashcard flashcard){
-        
+    public RetentionMetric(SystemUser user, Flashcard flashcard) {
+        this.user = user;
+        this.flashcard = flashcard;
+        this.easeFactor = 2.5;
+        this.intervalDays = 0;
+        this.masteryLevel = MasteryLevel.NEW;
     }
 }
