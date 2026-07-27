@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties.Authentication;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
@@ -57,5 +58,6 @@ public class DeckMangementServiceImpl implements DeckManagementService{
         return toResponseDto(findDeckOrThrow(id));
     }
 
-    
+    @Override
+    @PreAuthorize("hasAnyRole('LINGUIST','ADMIN')")
 }
