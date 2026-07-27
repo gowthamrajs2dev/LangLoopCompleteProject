@@ -2,6 +2,8 @@ package com.example.demo.entity;
 
 import java.time.LocalDateTime;
 
+import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -36,8 +38,8 @@ public class RetentionMetric {
     private MasteryLevel masteryLevel;
 
     @ManyToOne
-    @JoinColumn()
-    private Long userId;
+    @JoinColumn(name = "user_id")
+    private SystemUser user;
 
     @ManyToOne
 
