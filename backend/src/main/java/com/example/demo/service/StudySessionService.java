@@ -1,8 +1,11 @@
 package com.example.demo.service;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-@Service
-public class StudySessionService {
-    
-}
+import com.example.demo.dto.SessionResultDto;
+
+public interface StudySessionService {
+    StudySessionResponseDto completeSession(SessionResultDto dto);
+ 
+    List<StudySessionResponseDto> getUserSessions(Long userId);
+} 
