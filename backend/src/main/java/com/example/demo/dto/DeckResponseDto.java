@@ -18,6 +18,5 @@ public class DeckResponseDto {
     private int capacity;
     private String mentorName;
     private Long ownerId;
-    private List<Flashcard> flashcards;
 }
 //no constraints added because this dto is used to send response to client
