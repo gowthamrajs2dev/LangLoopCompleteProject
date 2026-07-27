@@ -13,15 +13,20 @@ import com.example.demo.dto.DeckResponseDto;
 import com.example.demo.entity.StudyDeck;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.StudyDeckRepository;
+import com.example.demo.repository.SystemUserRepository;
 
 @Service
 public class DeckMangementServiceImpl implements DeckManagementService{
     @Autowired
     private StudyDeckRepository studyDeckRepository;
+    @Autowired
+    private SystemUserRepository systemUserRepository;
 
     private currentAuthenticatedUser(){
         Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
+        return systemUserRepository.findByUsername(authentication.getName())
         
+
     }
 
     public static DeckResponseDto convertToDeckResponseDto(StudyDeck studyDeck){
