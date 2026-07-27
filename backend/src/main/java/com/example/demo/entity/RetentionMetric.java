@@ -38,11 +38,11 @@ public class RetentionMetric {
     private MasteryLevel masteryLevel;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id")  //unidirectional 
     private SystemUser user;
 
     @ManyToOne
-    @JoinColumn(name="card_id")
+    @JoinColumn(name="card_id") //unidirectional
     private Flashcard flashcard;
 
     private Long cardId;
