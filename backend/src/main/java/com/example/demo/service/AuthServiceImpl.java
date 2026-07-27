@@ -5,6 +5,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.AuthResponseDto;
+import com.example.demo.dto.LoginRequestDto;
 import com.example.demo.dto.RegisterRequestDto;
 import com.example.demo.repository.SystemUserRepository;
 import com.example.demo.security.JwtUtil;
@@ -26,5 +27,11 @@ public class AuthServiceImpl implements AuthService{
     public AuthResponseDto register(RegisterRequestDto dto){
         
     }
+
+    @Override
+    public AuthResponseDto login(LoginRequestDto dto){
+        
+    }
+
     
 }
