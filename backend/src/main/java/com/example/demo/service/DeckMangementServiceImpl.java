@@ -18,6 +18,8 @@ import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.StudyDeckRepository;
 import com.example.demo.repository.SystemUserRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class DeckMangementServiceImpl implements DeckManagementService{
     @Autowired
@@ -60,4 +62,10 @@ public class DeckMangementServiceImpl implements DeckManagementService{
 
     @Override
     @PreAuthorize("hasAnyRole('LINGUIST','ADMIN')")
+    @Transactional
+    public DeckResponseDto createDeck(DeckRequestDto dto){
+        SystemUser owner= currentAuthenticatedUser();
+        StudyDeck deck = new StudyDeck();
+        deck.setTitle(dto.getTitle());
+    }
 }
