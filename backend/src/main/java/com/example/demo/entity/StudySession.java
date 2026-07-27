@@ -4,10 +4,12 @@ import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,18 +20,19 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 public class StudySession {
-    @Id
+   @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
+    @Column(name = "start_time", nullable = false)
     private LocalDateTime startTime;
+    @Column(name = "end_time")
     private LocalDateTime endTime;
-    @OneToOne
-    @JoinColumn(name = "user_id")
+    @Column(nullable = false)
+    private Integer score;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private SystemUser user;
-    @OneToOne
-    @JoinColumn(name = "deck_id")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "deck_id", nullable = false)
     private StudyDeck deck;
-    private Integer score;  //include validation score should be in some range
-    
 }
