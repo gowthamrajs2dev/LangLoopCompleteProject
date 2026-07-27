@@ -4,8 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.dto.AuthResponseDto;
+import com.example.demo.dto.RegisterRequestDto;
 import com.example.demo.repository.SystemUserRepository;
 import com.example.demo.security.JwtUtil;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class AuthServiceImpl implements AuthService{
@@ -17,5 +21,10 @@ public class AuthServiceImpl implements AuthService{
     @Autowired
     private final JwtUtil jwtUtil;
 
+    @Override
+    @Transactional
+    public AuthResponseDto register(RegisterRequestDto dto){
+        
+    }
     
 }
