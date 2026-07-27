@@ -3,8 +3,10 @@ package com.example.demo.service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.demo.repository.FlashcardRepository;
-import com.example.demo.repository.RetensionMetricRepository;
+import com.example.demo.repository.RetentionMetricRepository;
 import com.example.demo.repository.SystemUserRepository;
+
+import jakarta.transaction.Transactional;
 
 public class SpacedRepetitionServiceImpl implements SpacedRepetitionService {
     private static final double MIN_EASE_FACTOR = 1.3;
@@ -17,5 +19,8 @@ public class SpacedRepetitionServiceImpl implements SpacedRepetitionService {
     @Autowired
     private FlashcardRepository flashcardRepository;
 
+    @Override
+    @Transactional 
+    
 
 }
