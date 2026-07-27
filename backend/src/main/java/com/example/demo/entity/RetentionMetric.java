@@ -47,7 +47,7 @@ public class RetentionMetric {
 
     private Long cardId;
 
-    public RetentionMetric(){
+    public RetentionMetric(SystemUser user,Flashcard flashcard){
         
     }
 }
