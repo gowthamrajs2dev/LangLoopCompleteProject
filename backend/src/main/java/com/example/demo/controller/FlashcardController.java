@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.dto.FlashcardRequestDto;
 import com.example.demo.dto.FlashcardResponseDto;
 import com.example.demo.service.FlashcardService;
 
@@ -18,6 +19,10 @@ public class FlashcardController {
     private FlashcardService flashcardService;
     @GetMapping("/{id}/cards")
     public List<FlashcardResponseDto> getCardsByDeck(@PathVariable Long id){
-        return 
+        return flashcardService.getCardsByDeck(id);
+    }
+
+    public FlashcardResponseDto createFlashcard(Long deckId,FlashcardRequestDto dto){
+        return flashcardService.crea
     }
 }
