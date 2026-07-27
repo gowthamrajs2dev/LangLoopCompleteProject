@@ -11,7 +11,7 @@ public class SpacedRepetitionServiceImpl implements SpacedRepetitionService {
     private static final int MASTERED_INTERVAL_THRESHOLD_DAYS = 21;
  
     @Autowired
-    private RetensionMetricRepository retensionMetricRepository;
+    private RetentionMetricRepository retensionMetricRepository;retentionMetricRepository
     @Autowired
     private SystemUserRepository systemUserRepository;
     @Autowired
