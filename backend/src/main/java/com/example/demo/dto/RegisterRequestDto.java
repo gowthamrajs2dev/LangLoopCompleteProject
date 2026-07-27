@@ -14,7 +14,7 @@ public class RegisterRequestDto {
     private String username;
     private String password;
     public enum Role{
-
+        LEAARN
     }
     @Enumerated
     private UserRole role;
