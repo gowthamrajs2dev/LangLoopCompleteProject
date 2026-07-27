@@ -81,6 +81,12 @@ public class DeckMangementServiceImpl implements DeckManagementService{
     @Transactional
     public DeckResponseDto updateDeck(Long id,DeckRequestDto dto){
         StudyDeck deck=findDeckOrThrow(id);
-        deck.setTitle();
+        deck.setTitle(dto.getTitle());
+        deck.setDescription(dto.getDescription());
+        deck.setCapacity(dto.getCapacity());
+        return toResponseDto(studyDeckRepository.save(deck));
     }
+
+    @Override
+    
 }
