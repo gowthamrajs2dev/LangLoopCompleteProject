@@ -21,6 +21,10 @@ public class SpacedRepetitionServiceImpl implements SpacedRepetitionService {
 
     @Override
     @Transactional 
-    
+    public void updateRetentionMetric(Long userId,Long cardId,Integer quality){
+        if(quality == null || quality <0 || quality>5){
+            throw new IllegalArgumentException("Quality must be between 0 and 5");
+        }
+    }
 
 }
