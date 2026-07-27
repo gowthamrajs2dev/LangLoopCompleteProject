@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,8 @@ import com.example.demo.dto.StudySessionResponseDto;
 import com.example.demo.entity.RetentionMetric;
 import com.example.demo.entity.SystemUser;
 import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.repository.SystemUserRepository;
+import com.example.demo.service.SpacedRepetitionService;
 import com.example.demo.service.StudySessionService;
 
 import jakarta.validation.Valid;
@@ -24,8 +27,13 @@ import jakarta.validation.Valid;
 public class StudyController {
 
     @Autowired
-    StudySessionService studySessionService;
-     @GetMapping("/due")
+    private SpacedRepetitionService spacedRepetitionService;
+    @Autowired
+    private StudySessionService studySessionService;
+    @Autowired
+    private SystemUserRepository systemUserRepository;
+    
+    @GetMapping("/due")
     public ResponseEntity<List<DueReviewResponseDto>> getDueReviews(Authentication authentication) {
         Long userId = resolveUserId(authentication);
         List<DueReviewResponseDto> dueReviews = spacedRepetitionService.getDueReviews(userId).stream()
@@ -36,8 +44,7 @@ public class StudyController {
     }
  
     @PostMapping("/complete")
-    public ResponseEntity<StudySessionResponseDto> completeSession(Authentication authentication,
-                                                                     @Valid @RequestBody SessionResultDto dto) {
+    public ResponseEntity<StudySessionResponseDto> completeSession(Authentication authentication,@Valid @RequestBody SessionResultDto dto) {
         dto.setUserId(resolveUserId(authentication));
         return ResponseEntity.ok(studySessionService.completeSession(dto));
     }
