@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.example.demo.dto.DeckRequestDto;
 import com.example.demo.dto.DeckResponseDto;
@@ -30,8 +31,10 @@ public class DeckMangementServiceImpl implements DeckManagementService{
 
     }
 
+    private DeckResponseDtor toReso
     public List<DeckResponseDto> getAllDecks(){
         return studyDeckRepository.findAll().stream()
         .map(this::toResponseDto)
+        .collect(Collectors.toList());
     }
 }
