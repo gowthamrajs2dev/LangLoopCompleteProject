@@ -1,8 +1,10 @@
 package com.example.demo.service;
 
-import org.springframework.stereotype.Service;
+import com.example.demo.dto.AuthResponseDto;
+import com.example.demo.dto.RegisterRequestDto;
 
-@Service
-public class AuthService {
+public interface AuthService {
+    AuthResponseDto register(RegisterRequestDto dto);
     
-}
+    AuthResponseDto login()
+} 
