@@ -4,6 +4,7 @@ import java.util.List;
 
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -34,9 +35,9 @@ public class StudyDeck {
     private int capacity; 
     @NotBlank 
     private String mentorName;
-    @ManyToOne
-    @JoinColumn(name = "owner_id")
-    private SystemUser owner;
+    
+    @Column(nullable =  false)
+    private Long ownerId;
     @OneToMany(mappedBy = "deck",cascade = CascadeType.ALL)
     private List<Flashcard> flashcards;
 }
