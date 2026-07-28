@@ -14,13 +14,6 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
-/**
- * Runs once per request: reads the Authorization header, validates the JWT,
- * and -- if valid -- establishes the Spring Security authentication context
- * for the rest of the request pipeline. This is what lets
- * SecurityContextHolder.getContext().getAuthentication() work later in
- * DeckManagementServiceImpl and StudyController.
- */
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
@@ -50,8 +43,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         String token = authHeader.substring(BEARER_PREFIX.length());
         String username = jwtUtil.extractUsername(token);
 
-        // Only attempt to authenticate if there's a username and no
-        // authentication has already been set on this request.
+        
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 

@@ -10,23 +10,9 @@ import javax.crypto.SecretKey;
 import java.util.Date;
 import java.util.function.Function;
 
-/**
- * Generates and validates HS256-signed JWTs, per SRS: "stateless JWT-based
- * authentication secured using HS256 token signing mechanisms."
- *
- * Note on naming: the SRS's Project Structure file tree lists this class as
- * config/JwtService.java, while the Security & Filter Layer section
- * describes it as security/JwtUtil.java with generateToken(String username).
- * This implementation follows the section text (JwtUtil, security package)
- * since it defines the actual method contract; the file tree entry appears
- * to be a naming inconsistency in the source document.
- */
 @Component
 public class JwtUtil {
 
-    // Injected from application.properties (e.g. jwt.secret / jwt.expiration).
-    // A real secret must be a Base64-encoded string long enough for HS256
-    // (256 bits minimum) -- never hardcode this in source in a real deploy.
     @Value("${jwt.secret}")
     private String secretKey;
 
