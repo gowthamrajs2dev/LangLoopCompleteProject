@@ -12,7 +12,7 @@ import javax.crypto.SecretKey;
 import java.util.Date;
 import java.util.function.Function;
 
-@Service
+@Component
 public class JwtUtil {
      @Value("${jwt.secret}")
     private String secretKey;
