@@ -11,31 +11,31 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
- 
+
 import java.util.List;
 import java.util.stream.Collectors;
- 
+
 @Service
 public class DeckManagementServiceImpl implements DeckManagementService {
- 
+
     private final StudyDeckRepository studyDeckRepository;
- 
+
     public DeckManagementServiceImpl(StudyDeckRepository studyDeckRepository) {
         this.studyDeckRepository = studyDeckRepository;
     }
- 
+
     @Override
     public List<DeckResponseDto> getAllDecks() {
         return studyDeckRepository.findAll().stream()
                 .map(this::toResponseDto)
                 .collect(Collectors.toList());
     }
- 
+
     @Override
     public DeckResponseDto getDeckById(Long id) {
         return toResponseDto(findDeckOrThrow(id));
     }
- 
+
     @Override
     @PreAuthorize("hasAnyRole('LINGUIST', 'ADMIN')")
     @Transactional
@@ -44,17 +44,17 @@ public class DeckManagementServiceImpl implements DeckManagementService {
         // mentorName and ownerId are derived from the authenticated caller,
         // since the SRS's own entity requires both as non-blank fields.
         CustomUserDetails owner = currentAuthenticatedUser();
- 
+
         StudyDeck deck = new StudyDeck();
         deck.setTitle(dto.getTitle());
         deck.setDescription(dto.getDescription());
         deck.setCapacity(dto.getCapacity());
         deck.setMentorName(owner.getUsername());
         deck.setOwnerId(owner.getId());
- 
+
         return toResponseDto(studyDeckRepository.save(deck));
     }
- 
+
     @Override
     @PreAuthorize("hasAnyRole('LINGUIST', 'ADMIN')")
     @Transactional
@@ -65,7 +65,7 @@ public class DeckManagementServiceImpl implements DeckManagementService {
         deck.setCapacity(dto.getCapacity());
         return toResponseDto(studyDeckRepository.save(deck));
     }
- 
+
     @Override
     @PreAuthorize("hasRole('ADMIN')")
     @Transactional
@@ -75,12 +75,12 @@ public class DeckManagementServiceImpl implements DeckManagementService {
         // associated flashcards are removed along with the deck.
         studyDeckRepository.delete(deck);
     }
- 
+
     private StudyDeck findDeckOrThrow(Long id) {
         return studyDeckRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("StudyDeck not found with id: " + id));
     }
- 
+
     private CustomUserDetails currentAuthenticatedUser() {
         // The principal is CustomUserDetails (set by JwtAuthenticationFilter
         // via CustomUserDetailsService), so id/username are read directly
@@ -88,7 +88,7 @@ public class DeckManagementServiceImpl implements DeckManagementService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return (CustomUserDetails) authentication.getPrincipal();
     }
- 
+
     private DeckResponseDto toResponseDto(StudyDeck deck) {
         return new DeckResponseDto(
                 deck.getId(),
@@ -100,4 +100,3 @@ public class DeckManagementServiceImpl implements DeckManagementService {
         );
     }
 }
- 
