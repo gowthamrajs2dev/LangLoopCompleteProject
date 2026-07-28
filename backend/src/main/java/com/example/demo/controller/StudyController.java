@@ -7,10 +7,13 @@ import com.example.demo.dto.DueReviewResponseDto;
 import com.example.demo.dto.SessionResultDto;
 import com.example.demo.dto.StudySessionResponseDto;
 import com.example.demo.entity.RetentionMetric;
+import com.example.demo.repository.SystemUserRepository;
 import com.example.demo.security.CustomUserDetails;
 import com.example.demo.service.SpacedRepetitionService;
 import com.example.demo.service.StudySessionService;
 import jakarta.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
@@ -26,8 +29,7 @@ public class StudyController {
     private SpacedRepetitionService spacedRepetitionService;
     @Autowired
     private StudySessionService studySessionService;
-    @Autowired
-    private SystemUserRepository systemUserRepository;
+
     
     @GetMapping("/due")
     public ResponseEntity<List<DueReviewResponseDto>> getDueReviews(Authentication authentication) {
@@ -40,16 +42,15 @@ public class StudyController {
     }
  
     @PostMapping("/complete")
-    public ResponseEntity<StudySessionResponseDto> completeSession(Authentication authentication,@Valid @RequestBody SessionResultDto dto) {
+    public ResponseEntity<StudySessionResponseDto> completeSession(Authentication authentication,
+                                                                     @Valid @RequestBody SessionResultDto dto) {
         dto.setUserId(resolveUserId(authentication));
         return ResponseEntity.ok(studySessionService.completeSession(dto));
     }
  
     private Long resolveUserId(Authentication authentication) {
-        SystemUser user = systemUserRepository.findByUsername(authentication.getName())
-                .orElseThrow(() -> new ResourceNotFoundException(
-                        "Authenticated user not found: " + authentication.getName()));
-        return user.getId();
+        CustomUserDetails principal = (CustomUserDetails) authentication.getPrincipal();
+        return principal.getId();
     }
  
     private DueReviewResponseDto toDueReviewDto(RetentionMetric metric) {
