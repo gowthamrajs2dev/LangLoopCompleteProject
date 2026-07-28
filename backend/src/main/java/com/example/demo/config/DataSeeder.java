@@ -1,29 +1,33 @@
 package com.example.demo.config;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Component;
-
+ 
 import com.example.demo.entity.Flashcard;
 import com.example.demo.entity.StudyDeck;
 import com.example.demo.entity.SystemUser;
 import com.example.demo.repository.FlashcardRepository;
 import com.example.demo.repository.StudyDeckRepository;
 import com.example.demo.repository.SystemUserRepository;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
 
 @Component
-public class DataSeeder implements CommandLineRunner{
-    @Autowired
-    private SystemUserRepository systemUserRepository;
-    @Autowired
-    private StudyDeckRepository studyDeckRepository;
-    @Autowired
-    private FlashcardRepository flashcardRepository;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-    
-    
+public class DataSeeder implements CommandLineRunner {
+ 
+    private final SystemUserRepository systemUserRepository;
+    private final StudyDeckRepository studyDeckRepository;
+    private final FlashcardRepository flashcardRepository;
+    private final PasswordEncoder passwordEncoder;
+ 
+    public DataSeeder(SystemUserRepository systemUserRepository,
+                       StudyDeckRepository studyDeckRepository,
+                       FlashcardRepository flashcardRepository,
+                       PasswordEncoder passwordEncoder) {
+        this.systemUserRepository = systemUserRepository;
+        this.studyDeckRepository = studyDeckRepository;
+        this.flashcardRepository = flashcardRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
+ 
     @Override
     public void run(String... args) {
         SystemUser linguist = seedUser("linguist1", "password123", SystemUser.Role.LINGUIST);
