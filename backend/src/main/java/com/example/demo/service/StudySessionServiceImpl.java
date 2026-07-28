@@ -58,7 +58,7 @@ public class StudySessionServiceImpl implements StudySessionService {
         // in the deck. This is an interpretation of "updates retention
         // metrics automatically after each completed session" -- the SRS
         // doesn't specify per-card quality capture during a session.
-        List<Flashcard> cardsInDeck = flashcardRepository.findByDeckIdOrderByOrderIndexAsc(dto.getDeckId());
+        List<Flashcard> cardsInDeck = flashcardRepository.findByDeck_IdOrderByOrderIndexAsc(dto.getDeckId());
         for (Flashcard card : cardsInDeck) {
             spacedRepetitionService.updateRetentionMetric(dto.getUserId(), card.getId(), dto.getQuality());
         }

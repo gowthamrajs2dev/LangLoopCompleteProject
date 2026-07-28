@@ -41,7 +41,7 @@ public class FlashcardServicImpl implements FlashcardService{
         // when the caller doesn't supply one.
         Integer orderIndex = dto.getOrderIndex();
         if (orderIndex == null) {
-            orderIndex = (int) flashcardRepository.countByDeckId(deckId) + 1;
+            orderIndex = (int) flashcardRepository.countByDeck_Id(deckId) + 1;
         }
         flashcard.setOrderIndex(orderIndex);
  
@@ -50,7 +50,7 @@ public class FlashcardServicImpl implements FlashcardService{
  
     @Override
     public List<FlashcardResponseDto> getCardsByDeck(Long deckId) {
-        return flashcardRepository.findByDeckIdOrderByOrderIndexAsc(deckId).stream()
+        return flashcardRepository.findByDeck_IdOrderByOrderIndexAsc(deckId).stream()
                 .map(this::toResponseDto)
                 .collect(Collectors.toList());
     }
