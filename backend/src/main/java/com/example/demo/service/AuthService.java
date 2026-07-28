@@ -5,7 +5,8 @@ import com.example.demo.dto.LoginRequestDto;
 import com.example.demo.dto.RegisterRequestDto;
 
 public interface AuthService {
+
     AuthResponseDto register(RegisterRequestDto dto);
-    
+
     AuthResponseDto login(LoginRequestDto dto);
-} 
+}
