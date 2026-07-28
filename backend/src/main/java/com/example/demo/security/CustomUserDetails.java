@@ -8,15 +8,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
-/**
- * Wraps SystemUser so downstream code (controllers, services) can pull the
- * authenticated user's id and role directly off the security context,
- * instead of re-querying SystemUserRepository by username on every request.
- *
- * This isn't in the SRS at all -- it's a practical improvement over using
- * Spring Security's built-in User class, which only exposes
- * username/password/authorities and has no concept of a database id.
- */
 public class CustomUserDetails implements UserDetails {
 
     private final SystemUser systemUser;

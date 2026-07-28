@@ -24,7 +24,6 @@ public class Flashcard {
     @Column(name = "order_index", nullable = false)
     private Integer orderIndex;
 
-    // Each card must be linked to a valid StudyDeck (Many-to-One).
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "deck_id", nullable = false)
     private StudyDeck deck;
@@ -79,8 +78,6 @@ public class Flashcard {
         this.deck = deck;
     }
 
-    // Convenience accessor matching the SRS field name "deckId" without
-    // exposing the full StudyDeck graph where only the id is needed.
     @Transient
     public Long getDeckId() {
         return deck != null ? deck.getId() : null;

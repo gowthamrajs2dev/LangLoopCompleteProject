@@ -15,7 +15,6 @@ public class SessionResultDto {
     @NotNull
     private Integer score;
 
-    // SM-2 quality rating: 0 (total blackout) through 5 (perfect recall).
     @NotNull
     @Min(0)
     @Max(5)
