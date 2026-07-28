@@ -31,5 +31,5 @@ public class SystemUser {
     @Column(unique=true)
     private String password;
     @Enumerated(EnumType.STRING)
-    private UserRole role;
+    public UserRole Role;
 }

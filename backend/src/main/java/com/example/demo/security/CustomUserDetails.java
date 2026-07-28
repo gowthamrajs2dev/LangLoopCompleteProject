@@ -1,9 +1,11 @@
 package com.example.demo.security;
 
-import com.example.demo.entity.SystemUser;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import com.example.demo.entity.SystemUser;
 
 import java.util.Collection;
 import java.util.List;
@@ -19,7 +21,7 @@ public class CustomUserDetails implements UserDetails {
         return systemUser.getId();
     }
  
-    public SystemUser.UserRole getRole() {
+    public SystemUser.Role getRole() {
         return systemUser.getRole();
     }
  
