@@ -14,15 +14,15 @@ public class AppConfig {
         final String securitySchemeName = "bearerAuth";
 
         return new OpenAPI()
-                .info(new Info()
-                        .title("LangLoop API")
-                        .description("Language Immersion & Flashcard Engine")
-                        .version("v1"))
-                .addSecurityItem(new SecurityRequirement().addList(securitySchemeName))
-                .schemaRequirement(securitySchemeName, new SecurityScheme()
-                        .name(securitySchemeName)
-                        .type(SecurityScheme.Type.HTTP)
-                        .scheme("bearer")
-                        .bearerFormat("JWT"));
+        .info(new Info()
+                .title("LangLoop API")
+                .description("Language Immersion & Flashcard Engine")
+                .version("v1"))
+        .addSecurityItem(new SecurityRequirement().addList(securitySchemeName))
+        .schemaRequirement(securitySchemeName, new SecurityScheme()
+                .name(securitySchemeName)
+                .type(SecurityScheme.Type.HTTP)
+                .scheme("bearer")
+                .bearerFormat("JWT"));
     }
 }
