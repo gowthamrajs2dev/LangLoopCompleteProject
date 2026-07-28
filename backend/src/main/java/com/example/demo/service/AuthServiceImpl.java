@@ -6,9 +6,6 @@ import com.example.demo.dto.RegisterRequestDto;
 import com.example.demo.entity.SystemUser;
 import com.example.demo.exception.UnauthorizedAccessException;
 import com.example.demo.repository.SystemUserRepository;
-// JwtUtil lives in the Security & Filter Layer (security/JwtUtil.java per the
-// SRS) and exposes generateToken(String username). It's injected here as a
-// forward dependency and will be implemented when that layer is built.
 import com.example.demo.security.JwtUtil;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -38,7 +35,6 @@ public class AuthServiceImpl implements AuthService {
 
         SystemUser user = new SystemUser();
         user.setUsername(dto.getUsername());
-        // BCrypt-encode before persistence, per SRS implementation requirements.
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
         user.setRole(dto.getRole());
 

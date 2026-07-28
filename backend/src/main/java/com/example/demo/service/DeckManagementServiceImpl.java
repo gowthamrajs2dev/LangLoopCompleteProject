@@ -40,9 +40,6 @@ public class DeckManagementServiceImpl implements DeckManagementService {
     @PreAuthorize("hasAnyRole('LINGUIST', 'ADMIN')")
     @Transactional
     public DeckResponseDto createDeck(DeckRequestDto dto) {
-        // DeckRequestDto (per SRS) carries only title/description/capacity.
-        // mentorName and ownerId are derived from the authenticated caller,
-        // since the SRS's own entity requires both as non-blank fields.
         CustomUserDetails owner = currentAuthenticatedUser();
 
         StudyDeck deck = new StudyDeck();

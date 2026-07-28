@@ -36,9 +36,6 @@ public class FlashcardServicImpl implements FlashcardService{
         flashcard.setFrontContent(dto.getFrontContent());
         flashcard.setBackContent(dto.getBackContent());
         flashcard.setDeck(deck);
- 
-        // Maintains sequential ordering: assign the next index automatically
-        // when the caller doesn't supply one.
         Integer orderIndex = dto.getOrderIndex();
         if (orderIndex == null) {
             orderIndex = (int) flashcardRepository.countByDeck_Id(deckId) + 1;

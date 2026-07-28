@@ -15,10 +15,6 @@ public class CustomUserDetails implements UserDetails {
     public CustomUserDetails(SystemUser systemUser) {
         this.systemUser = systemUser;
     }
-
-    // Convenience accessor: lets StudyController.resolveUserId() and
-    // DeckManagementServiceImpl.currentAuthenticatedUser() read the id
-    // straight off the principal instead of hitting the repository.
     public Long getId() {
         return systemUser.getId();
     }
@@ -29,8 +25,6 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // Spring Security expects the "ROLE_" prefix for hasRole()/hasAnyRole()
-        // checks in @PreAuthorize to match correctly.
         return List.of(new SimpleGrantedAuthority("ROLE_" + systemUser.getRole().name()));
     }
 

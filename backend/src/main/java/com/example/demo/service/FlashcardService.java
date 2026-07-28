@@ -7,7 +7,6 @@ import com.example.demo.dto.FlashcardResponseDto;
 
 public interface FlashcardService {
     FlashcardResponseDto createFlashcard(Long deckId, FlashcardRequestDto dto);
- 
     List<FlashcardResponseDto> getCardsByDeck(Long deckId);
     
 } 
