@@ -11,14 +11,6 @@ import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.function.Function;
-
-/**
- * Generates and verifies the application's HS256 JSON Web Tokens.
- *
- * <p>This class lives in {@code config} to retain the public API used by the
- * project contract. {@code security.JwtUtil} remains the component used by
- * the existing authentication filter.</p>
- */
 @Service
 public class JwtService {
 

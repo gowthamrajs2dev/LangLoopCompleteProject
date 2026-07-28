@@ -6,13 +6,6 @@ import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-/**
- * General-purpose application beans. Swagger UI is listed in the SRS
- * dependency list; this wires a minimal OpenAPI definition so the JWT
- * Authorization header can actually be supplied from the Swagger UI when
- * testing protected endpoints.
- */
 @Configuration
 public class AppConfig {
 

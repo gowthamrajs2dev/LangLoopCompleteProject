@@ -10,12 +10,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-/**
- * Inserts initial sample data during application startup, per SRS.
- * Every insert is guarded by an existence check first, so re-running the
- * app against an already-seeded database is a no-op rather than a
- * duplicate-key error or duplicate rows.
- */
 @Component
 public class DataSeeder implements CommandLineRunner {
 
