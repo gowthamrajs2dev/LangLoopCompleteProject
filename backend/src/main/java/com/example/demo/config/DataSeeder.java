@@ -52,15 +52,15 @@ public class DataSeeder implements CommandLineRunner {
 
         StudyDeck deck = new StudyDeck(
                 "Basic Greetings",
-                "Common greetings in Spanish for beginners",
+                "Common greetings in Tamil for beginners",
                 50,
                 owner.getUsername(),
                 owner.getId()
         );
         StudyDeck savedDeck = studyDeckRepository.save(deck);
 
-        flashcardRepository.save(new Flashcard("Hello", "Hola", 1, savedDeck));
-        flashcardRepository.save(new Flashcard("Good morning", "Buenos dias", 2, savedDeck));
-        flashcardRepository.save(new Flashcard("Thank you", "Gracias", 3, savedDeck));
+        flashcardRepository.save(new Flashcard("Hello", "Vanakam", 1, savedDeck));
+        flashcardRepository.save(new Flashcard("Good morning", "Kalai Vanakam", 2, savedDeck));
+        flashcardRepository.save(new Flashcard("Thank you", "Nandri", 3, savedDeck));
     }
 }
