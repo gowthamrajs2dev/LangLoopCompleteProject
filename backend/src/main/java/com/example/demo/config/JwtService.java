@@ -15,13 +15,13 @@ import java.util.function.Function;
 public class JwtService {
 
     private static final String DEFAULT_SECRET =
-            "change-this-development-secret-key-to-a-secure-value";
+            "z0uzqCYyO0ouaEhPcHyv5OGWRVXUGUZBNcVUtz+uDfk=";
 
     @Value("${jwt.secret:" + DEFAULT_SECRET + "}")
     private String secretKey = DEFAULT_SECRET;
 
     @Value("${jwt.expiration:86400000}")
-    private long jwtExpiration = 86_400_000L;
+    private long jwtExpiration = 1000*60*60*24;
 
     public String generateToken(String username) {
         Date issuedAt = new Date();
