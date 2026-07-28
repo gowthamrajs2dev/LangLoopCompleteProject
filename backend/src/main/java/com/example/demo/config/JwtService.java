@@ -1,0 +1,76 @@
+package com.example.demo.config;
+
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.JwtException;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+import javax.crypto.SecretKey;
+import java.nio.charset.StandardCharsets;
+import java.util.Date;
+import java.util.function.Function;
+
+/**
+ * Generates and verifies the application's HS256 JSON Web Tokens.
+ *
+ * <p>This class lives in {@code config} to retain the public API used by the
+ * project contract. {@code security.JwtUtil} remains the component used by
+ * the existing authentication filter.</p>
+ */
+@Service
+public class JwtService {
+
+    private static final String DEFAULT_SECRET =
+            "change-this-development-secret-key-to-a-secure-value";
+
+    @Value("${jwt.secret:" + DEFAULT_SECRET + "}")
+    private String secretKey = DEFAULT_SECRET;
+
+    @Value("${jwt.expiration:86400000}")
+    private long jwtExpiration = 86_400_000L;
+
+    public String generateToken(String username) {
+        Date issuedAt = new Date();
+        Date expiration = new Date(issuedAt.getTime() + jwtExpiration);
+
+        return Jwts.builder()
+                .setSubject(username)
+                .setIssuedAt(issuedAt)
+                .setExpiration(expiration)
+                .signWith(getSigningKey())
+                .compact();
+    }
+
+    public String extractUsername(String token) {
+        return extractClaim(token, Claims::getSubject);
+    }
+
+    public boolean isTokenValid(String token, String expectedUsername) {
+        try {
+            return expectedUsername != null
+                    && expectedUsername.equals(extractUsername(token))
+                    && !isTokenExpired(token);
+        } catch (JwtException | IllegalArgumentException exception) {
+            return false;
+        }
+    }
+
+    private boolean isTokenExpired(String token) {
+        return extractClaim(token, Claims::getExpiration).before(new Date());
+    }
+
+    private <T> T extractClaim(String token, Function<Claims, T> resolver) {
+        Claims claims = Jwts.parserBuilder()
+                .setSigningKey(getSigningKey())
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
+        return resolver.apply(claims);
+    }
+
+    private SecretKey getSigningKey() {
+        return Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));
+    }
+}
