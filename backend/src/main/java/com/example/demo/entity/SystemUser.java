@@ -3,6 +3,8 @@ package com.example.demo.entity;
 
 import java.util.List;
 
+import javax.management.relation.Role;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -30,5 +32,5 @@ public class SystemUser {
     private String username;
     private String password;
     @Enumerated(EnumType.STRING)
-    public UserRole Role;
+    public Role Role;
 }

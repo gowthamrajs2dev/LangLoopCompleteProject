@@ -21,7 +21,7 @@ public class CustomUserDetails implements UserDetails {
         return systemUser.getId();
     }
  
-    public SystemUser.UserRole getRole() {
+    public SystemUser.Role getRole() {
         return systemUser.getRole();
     }
  
