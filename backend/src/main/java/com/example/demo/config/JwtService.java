@@ -57,6 +57,20 @@ public class JwtService {
         }
     }
 
+    /**
+     * Verifies that a token has a valid signature and has not expired.
+     *
+     * <p>Use {@link #isTokenValid(String, String)} when the token must also
+     * belong to a particular user.</p>
+     */
+    public boolean validateToken(String token) {
+        try {
+            return token != null && !isTokenExpired(token);
+        } catch (JwtException | IllegalArgumentException exception) {
+            return false;
+        }
+    }
+
     private boolean isTokenExpired(String token) {
         return extractClaim(token, Claims::getExpiration).before(new Date());
     }
