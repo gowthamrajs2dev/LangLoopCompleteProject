@@ -52,12 +52,6 @@ public class StudySessionServiceImpl implements StudySessionService {
         LocalDateTime now = LocalDateTime.now();
         StudySession session = new StudySession(now, now, dto.getScore(), user, deck);
         StudySession saved = studySessionRepository.save(session);
-
-        // SessionResultDto carries a single quality rating for the whole
-        // deck session (not per card), so it's applied to every flashcard
-        // in the deck. This is an interpretation of "updates retention
-        // metrics automatically after each completed session" -- the SRS
-        // doesn't specify per-card quality capture during a session.
         List<Flashcard> cardsInDeck = flashcardRepository.findByDeck_IdOrderByOrderIndexAsc(dto.getDeckId());
         for (Flashcard card : cardsInDeck) {
             spacedRepetitionService.updateRetentionMetric(dto.getUserId(), card.getId(), dto.getQuality());
