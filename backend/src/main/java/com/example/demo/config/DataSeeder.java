@@ -16,9 +16,11 @@ import com.example.demo.repository.SystemUserRepository;
 public class DataSeeder implements CommandLineRunner{
     @Autowired
     private SystemUserRepository systemUserRepository;
-    
+    @Autowired
     private StudyDeckRepository studyDeckRepository;
+    @Autowired
     private FlashcardRepository flashcardRepository;
+    @Autowired
     private PasswordEncoder passwordEncoder;
     
     
