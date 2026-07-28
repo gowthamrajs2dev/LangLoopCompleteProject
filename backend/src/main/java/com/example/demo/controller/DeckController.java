@@ -31,10 +31,6 @@ public class DeckController {
     public ResponseEntity<DeckResponseDto> getDeckById(@PathVariable Long id) {
         return ResponseEntity.ok(deckManagementService.getDeckById(id));
     }
-
-    // Enforcement also lives in DeckManagementServiceImpl via @PreAuthorize;
-    // repeating it here is intentional defense-in-depth so the rule is
-    // visible at the API boundary too, not only in the service.
     @PostMapping
     @PreAuthorize("hasAnyRole('LINGUIST', 'ADMIN')")
     public ResponseEntity<DeckResponseDto> createDeck(@Valid @RequestBody DeckRequestDto dto) {
@@ -49,8 +45,6 @@ public class DeckController {
         return ResponseEntity.ok(deckManagementService.updateDeck(id, dto));
     }
 
-    // Must return the exact plain-text body "StudyDeck deleted successfully."
-    // as a String, not a JSON object, per the SRS.
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<String> deleteDeck(@PathVariable Long id) {

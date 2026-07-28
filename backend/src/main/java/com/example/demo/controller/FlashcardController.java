@@ -25,9 +25,6 @@ public class FlashcardController {
     public ResponseEntity<List<FlashcardResponseDto>> getCardsByDeck(@PathVariable("id") Long deckId) {
         return ResponseEntity.ok(flashcardService.getCardsByDeck(deckId));
     }
-
-    // Adding milestones to a roadmap is a content-authoring action, so it's
-    // restricted the same way deck creation/updates are.
     @PostMapping
     @PreAuthorize("hasAnyRole('LINGUIST', 'ADMIN')")
     public ResponseEntity<FlashcardResponseDto> createFlashcard(@PathVariable("id") Long deckId,

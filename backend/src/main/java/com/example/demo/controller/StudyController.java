@@ -32,9 +32,6 @@ public class StudyController {
     public ResponseEntity<List<DueReviewResponseDto>> getDueReviews(Authentication authentication) {
         Long userId = resolveUserId(authentication);
 
-        // RetentionMetric carries a full SystemUser relationship (password
-        // hash included), so it's mapped to a safe response DTO here rather
-        // than serialized directly.
         List<DueReviewResponseDto> dueReviews = spacedRepetitionService.getDueReviews(userId).stream()
                 .map(this::toDueReviewDto)
                 .collect(Collectors.toList());
@@ -45,17 +42,11 @@ public class StudyController {
     @PostMapping("/complete")
     public ResponseEntity<StudySessionResponseDto> completeSession(Authentication authentication,
                                                                      @Valid @RequestBody SessionResultDto dto) {
-        // The authenticated principal's id overrides any client-supplied
-        // userId, so a caller can't submit session results on someone
-        // else's behalf.
         dto.setUserId(resolveUserId(authentication));
         return ResponseEntity.ok(studySessionService.completeSession(dto));
     }
 
     private Long resolveUserId(Authentication authentication) {
-        // The principal is CustomUserDetails (set by JwtAuthenticationFilter
-        // via CustomUserDetailsService), so the id is read directly here --
-        // no extra database round-trip needed.
         CustomUserDetails principal = (CustomUserDetails) authentication.getPrincipal();
         return principal.getId();
     }
