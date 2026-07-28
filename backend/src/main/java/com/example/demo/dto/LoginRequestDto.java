@@ -1,13 +1,31 @@
 package com.example.demo.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.NotBlank;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
 public class LoginRequestDto {
+
+    @NotBlank
     private String username;
+
+    @NotBlank
     private String password;
+
+    public LoginRequestDto() {
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

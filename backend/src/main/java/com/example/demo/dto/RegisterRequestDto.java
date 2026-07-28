@@ -1,20 +1,44 @@
 package com.example.demo.dto;
 
-import com.example.demo.entity.UserRole;
+import com.example.demo.entity.SystemUser;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
 public class RegisterRequestDto {
+
+    @NotBlank
     private String username;
+
+    @NotBlank
     private String password;
-   
-    @Enumerated(EnumType.STRING)
-    private UserRole role;
+
+    @NotNull
+    private SystemUser.Role role;
+
+    public RegisterRequestDto() {
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public SystemUser.Role getRole() {
+        return role;
+    }
+
+    public void setRole(SystemUser.Role role) {
+        this.role = role;
+    }
 }
