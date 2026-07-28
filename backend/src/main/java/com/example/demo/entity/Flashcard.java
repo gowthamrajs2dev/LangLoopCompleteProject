@@ -2,7 +2,6 @@ package com.example.demo.entity;
 
 
 
-import io.micrometer.common.lang.Nullable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
