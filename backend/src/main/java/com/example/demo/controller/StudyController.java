@@ -7,7 +7,6 @@ import com.example.demo.dto.DueReviewResponseDto;
 import com.example.demo.dto.SessionResultDto;
 import com.example.demo.dto.StudySessionResponseDto;
 import com.example.demo.entity.RetentionMetric;
-import com.example.demo.repository.SystemUserRepository;
 import com.example.demo.security.CustomUserDetails;
 import com.example.demo.service.SpacedRepetitionService;
 import com.example.demo.service.StudySessionService;
