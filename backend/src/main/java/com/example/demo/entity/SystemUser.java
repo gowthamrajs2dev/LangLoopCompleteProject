@@ -28,7 +28,6 @@ public class SystemUser {
     @Column(unique = true)
     @NotNull
     private String username;
-    @Column(unique=true)
     private String password;
     @Enumerated(EnumType.STRING)
     public UserRole Role;
