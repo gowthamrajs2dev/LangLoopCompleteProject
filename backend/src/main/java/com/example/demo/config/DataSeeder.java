@@ -1,5 +1,5 @@
 package com.example.demo.config;
- 
+
 import com.example.demo.entity.Flashcard;
 import com.example.demo.entity.StudyDeck;
 import com.example.demo.entity.SystemUser;
@@ -10,14 +10,20 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+/**
+ * Inserts initial sample data during application startup, per SRS.
+ * Every insert is guarded by an existence check first, so re-running the
+ * app against an already-seeded database is a no-op rather than a
+ * duplicate-key error or duplicate rows.
+ */
 @Component
 public class DataSeeder implements CommandLineRunner {
- 
+
     private final SystemUserRepository systemUserRepository;
     private final StudyDeckRepository studyDeckRepository;
     private final FlashcardRepository flashcardRepository;
     private final PasswordEncoder passwordEncoder;
- 
+
     public DataSeeder(SystemUserRepository systemUserRepository,
                        StudyDeckRepository studyDeckRepository,
                        FlashcardRepository flashcardRepository,
@@ -27,16 +33,16 @@ public class DataSeeder implements CommandLineRunner {
         this.flashcardRepository = flashcardRepository;
         this.passwordEncoder = passwordEncoder;
     }
- 
+
     @Override
     public void run(String... args) {
         SystemUser linguist = seedUser("linguist1", "password123", SystemUser.Role.LINGUIST);
         seedUser("learner1", "password123", SystemUser.Role.LEARNER);
         seedUser("admin1", "password123", SystemUser.Role.ADMIN);
- 
+
         seedDeckWithCards(linguist);
     }
- 
+
     private SystemUser seedUser(String username, String rawPassword, SystemUser.Role role) {
         return systemUserRepository.findByUsername(username)
                 .orElseGet(() -> {
@@ -44,12 +50,12 @@ public class DataSeeder implements CommandLineRunner {
                     return systemUserRepository.save(user);
                 });
     }
- 
+
     private void seedDeckWithCards(SystemUser owner) {
         if (!studyDeckRepository.findByTitleContainingIgnoreCase("Basic Greetings").isEmpty()) {
             return;
         }
- 
+
         StudyDeck deck = new StudyDeck(
                 "Basic Greetings",
                 "Common greetings in Spanish for beginners",
@@ -58,7 +64,7 @@ public class DataSeeder implements CommandLineRunner {
                 owner.getId()
         );
         StudyDeck savedDeck = studyDeckRepository.save(deck);
- 
+
         flashcardRepository.save(new Flashcard("Hello", "Hola", 1, savedDeck));
         flashcardRepository.save(new Flashcard("Good morning", "Buenos dias", 2, savedDeck));
         flashcardRepository.save(new Flashcard("Thank you", "Gracias", 3, savedDeck));
