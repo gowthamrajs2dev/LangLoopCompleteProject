@@ -33,7 +33,7 @@ public class DeckController {
     }
     @PostMapping
     @PreAuthorize("hasAnyRole('LINGUIST', 'ADMIN')")
-    public ResponseEntity<DeckResponseDto> createDeck(@Valid @Re DeckRequestDto dto) {
+    public ResponseEntity<DeckResponseDto> createDeck(@Valid @RequestBody DeckRequestDto dto) {
         DeckResponseDto created = deckManagementService.createDeck(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
