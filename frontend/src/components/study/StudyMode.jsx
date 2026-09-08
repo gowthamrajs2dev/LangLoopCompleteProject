@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import api from '../../services/api';
 import { useParams } from 'react-router-dom';
+import api from '../../services/api';
 
 function StudyMode() {
   const { deckId } = useParams();
@@ -12,7 +12,21 @@ function StudyMode() {
     const loadCards = async () => {
       try {
         const response = await api.get(`/decks/${deckId}/cards`);
-        setCards(response.data || []);
+
+        // Handle both:
+        // { data: [...] }
+        // and { data: { data: [...] } }
+        const data = response?.data;
+
+        if (Array.isArray(data)) {
+          setCards(data);
+        } else if (Array.isArray(data?.data)) {
+          setCards(data.data);
+        } else if (Array.isArray(data?.cards)) {
+          setCards(data.cards);
+        } else {
+          setCards([]);
+        }
       } catch (error) {
         setCards([]);
       }
@@ -37,8 +51,19 @@ function StudyMode() {
       <h1>Study Mode</h1>
 
       <h2>{currentCard.question}</h2>
-
       <p>{currentCard.answer}</p>
+
+      {index > 0 && (
+        <button onClick={() => setIndex(index - 1)}>
+          Previous
+        </button>
+      )}
+
+      {index < cards.length - 1 && (
+        <button onClick={() => setIndex(index + 1)}>
+          Next
+        </button>
+      )}
     </div>
   );
 }
