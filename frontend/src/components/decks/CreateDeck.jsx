@@ -59,7 +59,7 @@ function CreateDeck() {
 
   return (
     <div>
-      <h1>Create Deck</h1>
+      <h1>New Deck</h1>
 
       <form onSubmit={handleSubmit}>
 
