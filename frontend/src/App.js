@@ -12,46 +12,53 @@ import StudyMode from './components/study/StudyMode';
 
 function App() {
   return (
-    <>
+    <div className="app-shell">
       <Navbar />
 
-      <Routes>
-        <Route
-          path="/"
-          element={<Dashboard />}
-        />
+      <main className="app-content">
+        <Routes>
+          <Route
+            path="/"
+            element={<Dashboard />}
+          />
 
-        <Route
-          path="/login"
-          element={<Login />}
-        />
+          <Route
+            path="/login"
+            element={<Login />}
+          />
 
-        <Route
-          path="/register"
-          element={<Register />}
-        />
+          <Route
+            path="/register"
+            element={<Register />}
+          />
 
-        <Route
-          path="/decks"
-          element={<DeckList />}
-        />
+          <Route
+            path="/decks"
+            element={<DeckList />}
+          />
 
-        <Route
-          path="/decks/create"
-          element={<CreateDeck />}
-        />
+          <Route
+            path="/decks/create"
+            element={<CreateDeck />}
+          />
 
-        <Route
-          path="/decks/:id"
-          element={<DeckDetails />}
-        />
+          <Route
+            path="/decks/:id/edit"
+            element={<CreateDeck />}
+          />
 
-        <Route
-          path="/study/:deckId"
-          element={<StudyMode />}
-        />
-      </Routes>
-    </>
+          <Route
+            path="/decks/:id"
+            element={<DeckDetails />}
+          />
+
+          <Route
+            path="/study/:deckId"
+            element={<StudyMode />}
+          />
+        </Routes>
+      </main>
+    </div>
   );
 }
 
