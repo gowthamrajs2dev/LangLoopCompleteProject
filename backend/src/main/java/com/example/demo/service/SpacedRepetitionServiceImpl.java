@@ -15,14 +15,11 @@ import java.util.List;
 
 @Service
 public class SpacedRepetitionServiceImpl implements SpacedRepetitionService {
-
     private static final double MIN_EASE_FACTOR = 1.3;
     private static final int MASTERED_INTERVAL_THRESHOLD_DAYS = 21;
-
     private final RetentionMetricRepository retentionMetricRepository;
     private final SystemUserRepository systemUserRepository;
     private final FlashcardRepository flashcardRepository;
-
     public SpacedRepetitionServiceImpl(RetentionMetricRepository retentionMetricRepository,
                                         SystemUserRepository systemUserRepository,
                                         FlashcardRepository flashcardRepository) {
@@ -30,14 +27,12 @@ public class SpacedRepetitionServiceImpl implements SpacedRepetitionService {
         this.systemUserRepository = systemUserRepository;
         this.flashcardRepository = flashcardRepository;
     }
-
     @Override
     @Transactional
     public void updateRetentionMetric(Long userId, Long cardId, Integer quality) {
         if (quality == null || quality < 0 || quality > 5) {
             throw new IllegalArgumentException("Quality must be between 0 and 5");
         }
-
         RetentionMetric metric = retentionMetricRepository
                 .findByUser_IdAndFlashcard_Id(userId, cardId)
                 .orElseGet(() -> createNewMetric(userId, cardId));
@@ -47,7 +42,6 @@ public class SpacedRepetitionServiceImpl implements SpacedRepetitionService {
             updatedEase = MIN_EASE_FACTOR;
         }
         metric.setEaseFactor(updatedEase);
-
         int newIntervalDays;
         if (quality < 3) {
             
@@ -59,21 +53,17 @@ public class SpacedRepetitionServiceImpl implements SpacedRepetitionService {
         } else {
             newIntervalDays = (int) Math.round(metric.getIntervalDays() * updatedEase);
         }
-
         metric.setIntervalDays(newIntervalDays);
         metric.setNextReviewDate(LocalDateTime.now().plusDays(newIntervalDays));
         metric.setMasteryLevel(deriveMasteryLevel(quality, newIntervalDays));
-
         retentionMetricRepository.save(metric);
     }
-
     @Override
     public List<RetentionMetric> getDueReviews(Long userId) {
         return retentionMetricRepository
                 .findByUser_IdAndNextReviewDateLessThanEqualOrderByNextReviewDateAsc(
                         userId, LocalDateTime.now());
     }
-
     private RetentionMetric createNewMetric(Long userId, Long cardId) {
         SystemUser user = systemUserRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("SystemUser not found with id: " + userId));
@@ -82,7 +72,6 @@ public class SpacedRepetitionServiceImpl implements SpacedRepetitionService {
 
         return new RetentionMetric(user, flashcard);
     }
-
     private RetentionMetric.MasteryLevel deriveMasteryLevel(int quality, int intervalDays) {
         if (quality < 3) {
             return RetentionMetric.MasteryLevel.LEARNING;
